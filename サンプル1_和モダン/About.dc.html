@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>想いとしくみ 和モダン</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#F5F2EB}
+a{color:#1C1A18}a:hover{color:#A63A28}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes draw{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+@keyframes lineX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes ripple{from{transform:scale(.2);opacity:.8}to{transform:scale(2.2);opacity:0}}
+@keyframes vanish{0%,55%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-12px)}}
+@keyframes fly1{from{transform:none;opacity:1}to{transform:translate(-28px,-22px);opacity:0}}
+@keyframes fly2{from{transform:none;opacity:1}to{transform:translate(26px,-28px);opacity:0}}
+@keyframes fly3{from{transform:none;opacity:1}to{transform:translate(2px,-40px);opacity:0}}
+.in{animation:fadeUp 1.4s cubic-bezier(.2,.7,.2,1) both}
+.fi{animation:fadeIn 2s ease both}
+.d1{animation-delay:.3s}.d2{animation-delay:.6s}.d3{animation-delay:.9s}
+.reveal{animation:fadeUp 1.2s cubic-bezier(.2,.7,.2,1) both}
+.rule{transform-origin:0 50%;animation:lineX 1.6s cubic-bezier(.2,.7,.2,1) both}
+@supports (animation-timeline: view()){.reveal{animation:fadeUp linear both;animation-timeline:view();animation-range:entry 0% cover 30%}.rule{animation:lineX linear both;animation-timeline:view();animation-range:entry 0% cover 35%}}
+.enso{stroke-dasharray:1000;animation:draw 3.2s cubic-bezier(.6,.1,.3,1) .3s both}
+.orbit{animation:spin 30s linear infinite}
+.breathe{animation:breathe 2.4s ease-in-out infinite}
+.frame{overflow:hidden}
+.frame .ph{transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.frame:hover .ph{transform:scale(1.06)}
+.ul{background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .5s}
+.ul:hover{background-size:100% 1px}
+.node{transition:background .5s,color .5s}
+.node:hover{background:#1C1A18;color:#F5F2EB}
+.vt{writing-mode:vertical-rl}
+.rp{animation:ripple .9s ease-out both}
+.spw{animation:vanish 1.5s ease both}
+.sp{stroke-dasharray:80;animation:draw .7s ease-out both}
+.f1{animation:fly1 .9s ease-out both}.f2{animation:fly2 .9s ease-out both}.f3{animation:fly3 .9s ease-out both}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}.fx{display:none}}
+@media (max-width:720px){.vt{writing-mode:horizontal-tb !important}.hero-title{font-size:38px !important}.sec-title{font-size:28px !important}.pad{padding-left:20px !important;padding-right:20px !important}}
+</style>
+</helmet>
+<div ref="{{rootRef}}" onPointerDown="{{onTap}}" style="position: relative; font-family: 'Zen Kaku Gothic New', sans-serif; color: #1C1A18; background: #F5F2EB; width: 100%; box-sizing: border-box; overflow: hidden">
+<div class="fx" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; z-index: 50">
+  <sc-for list="{{sprouts}}" as="s" hint-placeholder-count="0">
+    <div style="position: absolute; left: {{s.x}}px; top: {{s.y}}px; width: 0; height: 0">
+      <span class="rp" style="position: absolute; left: -28px; top: -28px; width: 56px; height: 56px; border-radius: 50%; border: 1px solid {{s.color}}; box-sizing: border-box"></span>
+      <span class="f1" style="position: absolute; left: -2px; top: -2px; width: 4px; height: 4px; border-radius: 50%; background: #B08D57"></span>
+      <span class="f2" style="position: absolute; left: -2px; top: -2px; width: 4px; height: 4px; border-radius: 50%; background: #B08D57"></span>
+      <span class="f3" style="position: absolute; left: -2px; top: -2px; width: 3px; height: 3px; border-radius: 50%; background: #B08D57"></span>
+      <div class="spw" style="position: absolute; left: -22px; top: -52px; width: 44px; height: 52px">
+        <svg width="44" height="52" viewBox="0 0 40 48" fill="none" stroke="{{s.color}}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate({{s.rot}}deg); transform-origin: 50% 100%"><path class="sp" d="M20 46V24"></path><path class="sp" d="M20 28c0-8-6-13-14-13 0 8 6 13 14 13z"></path><path class="sp" d="M20 24c0-7 5-12 13-12 0 7-5 12-13 12z"></path></svg>
+      </div>
+    </div>
+  </sc-for>
+</div>
+
+<header class="pad" style="padding: 28px 56px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid #D6CFC2">
+  <a href="Main.dc.html" style="display: flex; align-items: center; gap: 14px; text-decoration: none">
+    <span style="width: 36px; height: 36px; background: {{accent}}; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700; color: #F5F2EB">一</span>
+    <span style="font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 20px; letter-spacing: 0.24em">一人プロジェクト</span>
+  </a>
+  <nav aria-label="メインメニュー" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 36px; font-size: 14px; letter-spacing: 0.16em">
+    <a href="About.dc.html" aria-current="page" style="text-decoration: none; padding: 6px 0; color: {{accent}}; border-bottom: 1px solid {{accent}}">想いとしくみ</a>
+    <a class="ul" href="Hatake.dc.html" style="text-decoration: none; padding: 6px 0">畑と日記</a>
+    <a href="Join.dc.html" style="text-decoration: none; border: 1px solid #1C1A18; padding: 12px 24px">関わる</a>
+  </nav>
+</header>
+
+<section class="pad" style="position: relative; max-width: 1320px; margin: 0 auto; padding: 120px 56px 140px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 48px">
+  <div style="display: flex; flex-direction: column; gap: 24px; flex: 1 1 380px">
+    <p class="in d2" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}">ABOUT</p>
+    <p class="in d3" style="margin: 0; font-size: 16px; line-height: 2.3; letter-spacing: 0.06em; max-width: 460px">一人プロジェクトが大切にしていること。<br>そして、支援がどのようにめぐっているのか。</p>
+  </div>
+  <div style="position: relative">
+    <svg width="380" height="380" viewBox="0 0 360 360" aria-hidden="true" style="position: absolute; right: -40px; top: -40px; opacity: 0.4"><path class="enso" d="M290 120c-30-60-110-90-180-55C40 100 30 200 80 260s160 70 210 10c40-50 30-110 0-150" fill="none" stroke="#B9B1A4" stroke-width="9" stroke-linecap="round"></path></svg>
+    <h1 class="vt hero-title fi d1" style="position: relative; margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 60px; letter-spacing: 0.3em; line-height: 1.5">想いと<br>しくみ</h1>
+  </div>
+</section>
+
+<section style="background: #EDE8DE">
+  <div class="pad" style="max-width: 1320px; margin: 0 auto; padding: 160px 56px; display: flex; flex-wrap: wrap; gap: 80px; align-items: center">
+    <div class="frame reveal" style="flex: 1 1 400px; min-width: 0; aspect-ratio: 3 / 4; position: relative; max-width: 520px">
+      <div class="ph" style="position: absolute; inset: 0; background: #CFC6B5; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; font-size: 13px; letter-spacing: 0.12em">［写真］代表・メンバーが畑に立つ後ろ姿</div>
+    </div>
+    <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 32px">
+      <p class="reveal" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}">序 — PHILOSOPHY</p>
+      <h2 class="reveal sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 38px; line-height: 1.8; letter-spacing: 0.14em">支える人と、<br>支えられる人を、分けない。</h2>
+      <div class="rule" style="height: 1px; background: #1C1A18"></div>
+      <p class="reveal" style="margin: 0; font-size: 16px; line-height: 2.5; letter-spacing: 0.05em">誰かを一方的に助けるのではなく、関わる人みんなで循環を育てたい。畑で作物を育て、加工し、商品として届ける。その道のりそのものが、子どもたちや障害のある方、地域の人の役割と出会いの場になります。</p>
+      <p class="reveal" style="margin: 0; font-size: 16px; line-height: 2.5; letter-spacing: 0.05em">特別なことをしなくてもいい。求めること、知ること、手を貸すこと。暮らしの延長にある参加が、次の誰かの安心へとつながっていきます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="pad" style="max-width: 1320px; margin: 0 auto; padding: 160px 56px; display: flex; flex-direction: column; align-items: center; gap: 72px">
+  <div class="reveal" style="text-align: center; display: flex; flex-direction: column; gap: 16px">
+    <p style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}">循環 — CYCLE</p>
+    <h2 class="sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 40px; letter-spacing: 0.14em">円を描いて、また種をまく。</h2>
+  </div>
+  <div class="reveal" style="position: relative; width: 100%; max-width: 560px; aspect-ratio: 1 / 1">
+    <svg viewBox="0 0 560 560" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><circle class="enso" cx="280" cy="280" r="210" fill="none" stroke="#1C1A18" stroke-width="1.2"></circle></svg>
+    <div class="orbit" aria-hidden="true" style="position: absolute; inset: 0"><span style="position: absolute; left: 50%; top: 12.5%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: {{accent}}"></span></div>
+    <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 44%; text-align: center; display: flex; flex-direction: column; gap: 10px">
+      <span style="font-family: 'Shippori Mincho B1', serif; font-size: 24px; letter-spacing: 0.2em">めぐり</span>
+      <span style="font-size: 13px; line-height: 2; color: #5E5850">一人ひとりの小さな参加が、次の誰かの希望に。</span>
+    </div>
+    <div class="node" style="position: absolute; left: 50%; top: 12.5%; width: 104px; height: 104px; margin: -52px 0 0 -52px; border-radius: 50%; border: 1px solid #1C1A18; background: #F5F2EB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 13px; color: {{accent}}">壱</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 19px; letter-spacing: 0.14em">育てる</span></div>
+    <div class="node" style="position: absolute; left: 87.5%; top: 50%; width: 104px; height: 104px; margin: -52px 0 0 -52px; border-radius: 50%; border: 1px solid #1C1A18; background: #F5F2EB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 13px; color: {{accent}}">弐</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 19px; letter-spacing: 0.14em">つくる</span></div>
+    <div class="node" style="position: absolute; left: 50%; top: 87.5%; width: 104px; height: 104px; margin: -52px 0 0 -52px; border-radius: 50%; border: 1px solid #1C1A18; background: #F5F2EB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 13px; color: {{accent}}">参</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 19px; letter-spacing: 0.14em">届ける</span></div>
+    <div class="node" style="position: absolute; left: 12.5%; top: 50%; width: 104px; height: 104px; margin: -52px 0 0 -52px; border-radius: 50%; border: 1px solid {{accent}}; background: {{accent}}; color: #F5F2EB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 13px">肆</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 19px; letter-spacing: 0.14em">還す</span></div>
+  </div>
+  <div style="width: 100%; display: flex; flex-direction: column; border-top: 1px solid #1C1A18">
+    <div class="reveal" style="display: flex; flex-wrap: wrap; gap: 12px 48px; padding: 36px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 20px; width: 160px; letter-spacing: 0.14em"><span style="color: {{accent}}">壱</span>　育てる</span><p style="margin: 0; flex: 1 1 400px; font-size: 15px; line-height: 2.2">群馬の畑で、子どもや地域の人と一緒に作物を育てます。土に触れること自体が学びです。</p></div>
+    <div class="reveal" style="display: flex; flex-wrap: wrap; gap: 12px 48px; padding: 36px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 20px; width: 160px; letter-spacing: 0.14em"><span style="color: {{accent}}">弐</span>　つくる</span><p style="margin: 0; flex: 1 1 400px; font-size: 15px; line-height: 2.2">収穫したさつまいもを干し芋などに加工。障害のある方と役割を分け合いながら、丁寧に仕立てます。</p></div>
+    <div class="reveal" style="display: flex; flex-wrap: wrap; gap: 12px 48px; padding: 36px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 20px; width: 160px; letter-spacing: 0.14em"><span style="color: {{accent}}">参</span>　届ける</span><p style="margin: 0; flex: 1 1 400px; font-size: 15px; line-height: 2.2">催事やオンラインショップでお届けします。手に取っていただくことが、想いを広げる一歩です。</p></div>
+    <div class="reveal" style="display: flex; flex-wrap: wrap; gap: 12px 48px; padding: 36px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 20px; width: 160px; letter-spacing: 0.14em"><span style="color: {{accent}}">肆</span>　還す</span><p style="margin: 0; flex: 1 1 400px; font-size: 15px; line-height: 2.2">売上や利益は、児童養護施設への支援や地域の活動へ。そしてまた、次の種をまきます。</p></div>
+  </div>
+</section>
+
+<section style="background: #1C1A18; color: #F5F2EB">
+  <div class="pad" style="max-width: 1320px; margin: 0 auto; padding: 140px 56px; display: flex; flex-direction: column; gap: 56px">
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: #B08D57">実り — RECORD</p>
+      <h2 class="sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 38px; letter-spacing: 0.14em">これまでに、めぐったもの。</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0">
+      <div class="reveal" style="padding: 32px 0; border-top: 1px solid #3F3A33; display: flex; flex-direction: column; gap: 12px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 56px; font-weight: 500">[数字]</span><span style="font-size: 13px; letter-spacing: 0.16em; color: #D6CFC2">収穫量（kg）</span></div>
+      <div class="reveal" style="padding: 32px 0; border-top: 1px solid #3F3A33; display: flex; flex-direction: column; gap: 12px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 56px; font-weight: 500">[数字]</span><span style="font-size: 13px; letter-spacing: 0.16em; color: #D6CFC2">施設への納品回数</span></div>
+      <div class="reveal" style="padding: 32px 0; border-top: 1px solid #3F3A33; display: flex; flex-direction: column; gap: 12px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 56px; font-weight: 500">[数字]</span><span style="font-size: 13px; letter-spacing: 0.16em; color: #D6CFC2">関わってくださった方</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" style="max-width: 1320px; margin: 0 auto; padding: 160px 56px; display: flex; flex-wrap: wrap; gap: 64px">
+  <div class="reveal" style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 16px">
+    <p style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}">支援先 — PARTNERS</p>
+    <h2 class="sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 36px; letter-spacing: 0.14em">応援が届くところ。</h2>
+  </div>
+  <div style="flex: 2 1 520px; display: flex; flex-direction: column; border-top: 1px solid #1C1A18">
+    <div class="reveal" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 32px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 22px; letter-spacing: 0.14em">希望館</span><span style="font-size: 14px; color: #5E5850">［支援の内容（例：干し芋の納品）］</span></div>
+    <div class="reveal" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 32px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 22px; letter-spacing: 0.14em">［支援先の名前］</span><span style="font-size: 14px; color: #5E5850">［支援の内容］</span></div>
+  </div>
+</section>
+
+<section style="background: {{accent}}; color: #F5F2EB">
+  <div class="pad reveal" style="max-width: 1320px; margin: 0 auto; padding: 112px 56px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px">
+    <h2 class="sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 38px; letter-spacing: 0.16em">あなたも、めぐりの一人に。</h2>
+    <a href="Join.dc.html" style="text-decoration: none; border: 1px solid #F5F2EB; color: #F5F2EB; padding: 18px 40px; font-size: 14px; letter-spacing: 0.2em">関わり方を見る　→</a>
+  </div>
+</section>
+
+<footer style="background: #1C1A18; color: #F5F2EB">
+  <div class="pad" style="max-width: 1320px; margin: 0 auto; padding: 96px 56px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <span style="display: flex; align-items: center; gap: 14px"><span style="width: 36px; height: 36px; background: {{accent}}; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700">一</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 22px; letter-spacing: 0.24em">一人プロジェクト</span></span>
+      <span style="font-size: 14px; letter-spacing: 0.12em; color: #D6CFC2">農業・子ども・地域・未来を、静かにつなぐ。</span>
+    </div>
+    <nav aria-label="フッターメニュー" style="display: flex; flex-wrap: wrap; gap: 14px 36px; font-size: 14px; letter-spacing: 0.14em">
+      <a class="ul" href="Main.dc.html" style="color: #F5F2EB; text-decoration: none">トップ</a>
+      <a class="ul" href="About.dc.html" style="color: #F5F2EB; text-decoration: none">想いとしくみ</a>
+      <a class="ul" href="Hatake.dc.html" style="color: #F5F2EB; text-decoration: none">畑と日記</a>
+      <a class="ul" href="Join.dc.html" style="color: #F5F2EB; text-decoration: none">関わる</a>
+    </nav>
+  </div>
+  <p class="pad" style="margin: 0 auto; max-width: 1320px; padding: 24px 56px 40px; font-size: 11px; letter-spacing: 0.2em; color: #B9B1A4; border-top: 1px solid #3F3A33; box-sizing: border-box">© 一人プロジェクト</p>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#A63A28","options":["#A63A28","#8A6A3A","#2F4A63","#1C1A18"]},"$preview":{"width":1440,"height":4200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sprouts: [] };
+  }
+  fx() {
+    if (!this._rr) {
+      this._rr = (el) => { this.root = el; };
+      this._tp = (e) => this.tap(e);
+    }
+    return { rootRef: this._rr, onTap: this._tp, sprouts: (this.state && this.state.sprouts) || [] };
+  }
+  tap(e) {
+    if (!this.root || !e) return;
+    const r = this.root.getBoundingClientRect();
+    const colors = ['#1C1A18', '#A63A28', '#8A6A3A'];
+    const id = Date.now() + '-' + Math.random().toString(36).slice(2, 7);
+    const p = { id: id, x: Math.round(e.clientX - r.left), y: Math.round(e.clientY - r.top), color: colors[Math.floor(Math.random() * colors.length)], rot: Math.round(Math.random() * 24 - 12) };
+    this.setState((s) => ({ sprouts: ((s && s.sprouts) || []).slice(-10).concat([p]) }));
+    setTimeout(() => this.setState((s) => ({ sprouts: ((s && s.sprouts) || []).filter((q) => q.id !== id) })), 1600);
+  }
+  renderVals() {
+    return Object.assign({ accent: this.props.accent ?? '#A63A28' }, this.fx());
+  }
+}
+</script>
+</body>
+</html>

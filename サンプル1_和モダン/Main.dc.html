@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一人プロジェクト 和モダン トップ</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#F5F2EB}
+a{color:#1C1A18}a:hover{color:#A63A28}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes draw{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.12) translate(-1.5%,-1.5%)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes stamp{0%{opacity:0;transform:scale(1.6) rotate(-8deg)}60%{opacity:1;transform:scale(.94) rotate(0)}100%{opacity:1;transform:scale(1)}}
+@keyframes lineX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pop{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
+@keyframes breathe{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes ripple{from{transform:scale(.2);opacity:.8}to{transform:scale(2.2);opacity:0}}
+@keyframes vanish{0%,55%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-12px)}}
+@keyframes fly1{from{transform:none;opacity:1}to{transform:translate(-28px,-22px);opacity:0}}
+@keyframes fly2{from{transform:none;opacity:1}to{transform:translate(26px,-28px);opacity:0}}
+@keyframes fly3{from{transform:none;opacity:1}to{transform:translate(2px,-40px);opacity:0}}
+.in{animation:fadeUp 1.4s cubic-bezier(.2,.7,.2,1) both}
+.fi{animation:fadeIn 2s ease both}
+.d1{animation-delay:.3s}.d2{animation-delay:.6s}.d3{animation-delay:.9s}.d4{animation-delay:1.2s}.d5{animation-delay:1.5s}.d6{animation-delay:1.8s}
+.reveal{animation:fadeUp 1.2s cubic-bezier(.2,.7,.2,1) both}
+.rule{transform-origin:0 50%;animation:lineX 1.6s cubic-bezier(.2,.7,.2,1) both}
+@supports (animation-timeline: view()){.reveal{animation:fadeUp linear both;animation-timeline:view();animation-range:entry 0% cover 30%}.rule{animation:lineX linear both;animation-timeline:view();animation-range:entry 0% cover 35%}}
+.enso{stroke-dasharray:1000;animation:draw 3.2s cubic-bezier(.6,.1,.3,1) .4s both}
+.stamp{animation:stamp .7s cubic-bezier(.2,.8,.2,1) 2.4s both}
+.kb{animation:kenburns 20s ease-in-out infinite alternate}
+.kb.paused{animation-play-state:paused}
+.marquee{animation:marquee 60s linear infinite}
+.prog{transform-origin:0 50%;animation:progress 20s linear infinite}
+.pop{animation:pop .6s ease both}
+.breathe{animation:breathe 2.4s ease-in-out infinite}
+.frame{overflow:hidden}
+.frame .ph{transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.frame:hover .ph{transform:scale(1.06)}
+.ul{background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .5s}
+.ul:hover{background-size:100% 1px}
+.row{transition:padding .5s cubic-bezier(.2,.7,.2,1),background .5s}
+.row:hover{padding-left:24px;background:#EDE8DE}
+.row .arw{transition:transform .5s}
+.row:hover .arw{transform:translateX(8px)}
+.vt{writing-mode:vertical-rl}
+.rp{animation:ripple .9s ease-out both}
+.spw{animation:vanish 1.5s ease both}
+.sp{stroke-dasharray:80;animation:draw .7s ease-out both}
+.f1{animation:fly1 .9s ease-out both}.f2{animation:fly2 .9s ease-out both}.f3{animation:fly3 .9s ease-out both}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}.fx{display:none}}
+@media (max-width:720px){.vt{writing-mode:horizontal-tb !important}.hero-title{font-size:38px !important}.sec-title{font-size:28px !important}.pad{padding-left:20px !important;padding-right:20px !important}}
+</style>
+</helmet>
+<div ref="{{rootRef}}" onPointerDown="{{onTap}}" style="position: relative; font-family: 'Zen Kaku Gothic New', sans-serif; color: #1C1A18; background: #F5F2EB; width: 100%; box-sizing: border-box; overflow: hidden">
+<div class="fx" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; z-index: 50">
+  <sc-for list="{{sprouts}}" as="s" hint-placeholder-count="0">
+    <div style="position: absolute; left: {{s.x}}px; top: {{s.y}}px; width: 0; height: 0">
+      <span class="rp" style="position: absolute; left: -28px; top: -28px; width: 56px; height: 56px; border-radius: 50%; border: 1px solid {{s.color}}; box-sizing: border-box"></span>
+      <span class="f1" style="position: absolute; left: -2px; top: -2px; width: 4px; height: 4px; border-radius: 50%; background: #B08D57"></span>
+      <span class="f2" style="position: absolute; left: -2px; top: -2px; width: 4px; height: 4px; border-radius: 50%; background: #B08D57"></span>
+      <span class="f3" style="position: absolute; left: -2px; top: -2px; width: 3px; height: 3px; border-radius: 50%; background: #B08D57"></span>
+      <div class="spw" style="position: absolute; left: -22px; top: -52px; width: 44px; height: 52px">
+        <svg width="44" height="52" viewBox="0 0 40 48" fill="none" stroke="{{s.color}}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate({{s.rot}}deg); transform-origin: 50% 100%"><path class="sp" d="M20 46V24"></path><path class="sp" d="M20 28c0-8-6-13-14-13 0 8 6 13 14 13z"></path><path class="sp" d="M20 24c0-7 5-12 13-12 0 7-5 12-13 12z"></path></svg>
+      </div>
+    </div>
+  </sc-for>
+</div>
+
+<header class="pad" style="position: absolute; left: 0; right: 0; top: 0; z-index: 10; padding: 28px 56px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; color: #F5F2EB">
+  <a href="Main.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #F5F2EB">
+    <span style="width: 36px; height: 36px; background: {{accent}}; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700; color: #F5F2EB">一</span>
+    <span style="font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 20px; letter-spacing: 0.24em">一人プロジェクト</span>
+  </a>
+  <nav aria-label="メインメニュー" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 36px; font-size: 14px; letter-spacing: 0.16em">
+    <a class="ul" href="About.dc.html" style="text-decoration: none; color: #F5F2EB; padding: 6px 0">想いとしくみ</a>
+    <a class="ul" href="Hatake.dc.html" style="text-decoration: none; color: #F5F2EB; padding: 6px 0">畑と日記</a>
+    <a class="ul" href="#movies" style="text-decoration: none; color: #F5F2EB; padding: 6px 0">映像</a>
+    <a href="Join.dc.html" style="text-decoration: none; color: #F5F2EB; border: 1px solid #F5F2EB; padding: 12px 24px">関わる</a>
+  </nav>
+</header>
+
+<section style="position: relative; min-height: 880px; overflow: hidden; background: #1C1A18; color: #F5F2EB; display: flex">
+  <div class="kb {{bgClass}}" aria-hidden="true" style="position: absolute; inset: -4%; background: #3A342C; display: flex; align-items: center; justify-content: flex-start; padding-left: 12%; box-sizing: border-box">
+    <span style="font-size: 13px; letter-spacing: 0.12em; color: #D6CFC2; border: 1px solid #6B6358; padding: 10px 18px">［背景動画］朝霧の畑・土に触れる手元（音なし・15秒ループ）</span>
+  </div>
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(20,18,16,0.5)"></div>
+  <div class="pad" style="position: relative; width: 100%; max-width: 1320px; margin: 0 auto; padding: 160px 56px 72px; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 48px">
+    <div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 28px; align-self: flex-end">
+      <p class="in d4" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em">HITORI PROJECT — GUNMA</p>
+      <p class="in d5" style="margin: 0; font-size: 16px; line-height: 2.2; letter-spacing: 0.08em; max-width: 440px">畑で育て、手でつくり、誰かに届ける。<br>その実りが、児童養護施設の子どもたちと<br>地域の居場所へ、静かに還っていく。</p>
+      <div class="in d6" style="display: flex; flex-wrap: wrap; gap: 16px">
+        <a href="#movies" style="text-decoration: none; background: #F5F2EB; color: #1C1A18; padding: 16px 32px; font-size: 14px; letter-spacing: 0.16em; display: flex; align-items: center; gap: 12px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="#1C1A18"></path></svg>映像を見る</a>
+        <a href="About.dc.html" style="text-decoration: none; border: 1px solid #F5F2EB; color: #F5F2EB; padding: 15px 31px; font-size: 14px; letter-spacing: 0.16em">私たちについて</a>
+      </div>
+    </div>
+    <div style="position: relative; display: flex; align-items: flex-start; gap: 28px">
+      <svg width="360" height="360" viewBox="0 0 360 360" aria-hidden="true" style="position: absolute; right: -60px; top: 40px; opacity: 0.55"><path class="enso" d="M290 120c-30-60-110-90-180-55C40 100 30 200 80 260s160 70 210 10c40-50 30-110 0-150" fill="none" stroke="#D6CFC2" stroke-width="10" stroke-linecap="round"></path></svg>
+      <h1 class="vt hero-title fi d1" style="position: relative; margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 64px; line-height: 1.6; letter-spacing: 0.18em; height: 560px">一人の想いが、<br>未来の種になる。</h1>
+      <span class="stamp" aria-hidden="true" style="position: relative; align-self: flex-end; width: 56px; height: 56px; border: 2px solid {{accent}}; color: {{accent}}; background: rgba(245,242,235,0.92); display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 15px; font-weight: 700; line-height: 1.1; text-align: center">一人<br>之印</span>
+    </div>
+  </div>
+  <button type="button" onClick="{{toggleBg}}" aria-label="{{bgLabel}}" style="position: absolute; right: 32px; bottom: 32px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #F5F2EB; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0">
+    <sc-if value="{{bgPaused}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="#F5F2EB"></path></svg></sc-if>
+    <sc-if value="{{bgPlaying}}" hint-placeholder-val="{{ true }}"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1" width="2.6" height="10" fill="#F5F2EB"></rect><rect x="7.4" y="1" width="2.6" height="10" fill="#F5F2EB"></rect></svg></sc-if>
+  </button>
+  <span class="breathe vt" aria-hidden="true" style="position: absolute; left: 32px; bottom: 40px; font-size: 11px; letter-spacing: 0.4em; color: #D6CFC2">SCROLL</span>
+</section>
+
+<div style="border-bottom: 1px solid #D6CFC2; padding: 26px 0; overflow: hidden" aria-hidden="true">
+  <div class="marquee" style="display: flex; width: max-content; gap: 64px; font-family: 'Shippori Mincho B1', serif; font-size: 22px; letter-spacing: 0.3em; white-space: nowrap; color: #5E5850">
+    <span>種をまく</span><span>・</span><span>育てる</span><span>・</span><span>つくる</span><span>・</span><span>届ける</span><span>・</span><span>還す</span><span>・</span><span>SEED TO SMILE</span><span>・</span>
+    <span>種をまく</span><span>・</span><span>育てる</span><span>・</span><span>つくる</span><span>・</span><span>届ける</span><span>・</span><span>還す</span><span>・</span><span>SEED TO SMILE</span><span>・</span>
+  </div>
+</div>
+
+<section class="pad" style="max-width: 1200px; margin: 0 auto; padding: 160px 56px; display: flex; flex-wrap: wrap; gap: 80px; align-items: flex-start">
+  <div class="reveal" style="flex: 0 0 auto; display: flex; gap: 32px">
+    <h2 class="vt sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 40px; line-height: 1.7; letter-spacing: 0.2em">支える人と、<br>支えられる人を<br>分けない。</h2>
+  </div>
+  <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 32px; padding-top: 24px">
+    <p class="reveal" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}">序 — PHILOSOPHY</p>
+    <div class="rule" style="height: 1px; background: #1C1A18; width: 100%"></div>
+    <p class="reveal" style="margin: 0; font-size: 17px; line-height: 2.4; letter-spacing: 0.06em">誰かを一方的に支えるのではなく、関わる人みんなで循環を育てる。畑で作物を育て、加工し、商品として届ける。その道のりそのものが、子どもたちや障害のある方、地域の人の役割と出会いの場になります。</p>
+    <a class="ul reveal" href="About.dc.html" style="align-self: flex-start; text-decoration: none; font-size: 14px; letter-spacing: 0.16em; padding: 8px 0">想いとしくみを読む　→</a>
+  </div>
+</section>
+
+<section id="movies" style="background: #1C1A18; color: #F5F2EB">
+  <div class="pad" style="max-width: 1320px; margin: 0 auto; padding: 140px 56px; display: flex; flex-direction: column; gap: 56px">
+    <div class="reveal" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <p style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: #B08D57">映像 — FILMS</p>
+        <h2 class="sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 40px; letter-spacing: 0.14em">畑の一年を、映像で。</h2>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+      <div class="reveal" style="flex: 2 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <sc-for list="{{current}}" as="v" hint-placeholder-count="1">
+          <div class="pop frame" style="position: relative; aspect-ratio: 16 / 9; background: #2A2622">
+            <div class="ph" style="position: absolute; inset: 0; background: {{v.tone}}; display: flex; align-items: flex-start; padding: 20px; box-sizing: border-box"><span style="font-size: 12px; letter-spacing: 0.12em; color: #F5F2EB; border: 1px solid #8C8478; padding: 6px 12px">［映像］{{v.title}}</span></div>
+            <sc-if value="{{notPlaying}}" hint-placeholder-val="{{ true }}">
+              <button type="button" onClick="{{play}}" aria-label="映像を再生" style="position: absolute; left: 50%; top: 50%; width: 104px; height: 104px; margin: -52px 0 0 -52px; border-radius: 50%; border: 1px solid #F5F2EB; background: rgba(20,18,16,0.35); color: #F5F2EB; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 0; font-family: 'Shippori Mincho B1', serif; font-size: 12px; letter-spacing: 0.2em"><svg width="16" height="16" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="#F5F2EB"></path></svg>PLAY</button>
+            </sc-if>
+            <sc-if value="{{playing}}" hint-placeholder-val="{{ false }}">
+              <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 22px; display: flex; align-items: center; gap: 18px; background: rgba(20,18,16,0.6)">
+                <button type="button" onClick="{{pause}}" aria-label="一時停止" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #F5F2EB; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; flex: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1" width="2.6" height="10" fill="#F5F2EB"></rect><rect x="7.4" y="1" width="2.6" height="10" fill="#F5F2EB"></rect></svg></button>
+                <div style="flex: 1; height: 1px; background: rgba(245,242,235,0.3)"><div class="prog" style="height: 1px; background: #F5F2EB"></div></div>
+                <span style="font-size: 12px; letter-spacing: 0.12em; flex: none">再生中（仮）</span>
+              </div>
+            </sc-if>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+            <h3 style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.1em">{{v.title}}</h3>
+            <span style="font-size: 13px; color: #B9B1A4; letter-spacing: 0.1em">{{v.len}}</span>
+          </div>
+          <p style="margin: 0; font-size: 15px; line-height: 2.1; color: #D6CFC2">{{v.desc}}</p>
+        </sc-for>
+      </div>
+      <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column">
+        <sc-for list="{{videos}}" as="t" hint-placeholder-count="3">
+          <button type="button" class="row" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="display: flex; gap: 18px; align-items: center; width: 100%; text-align: left; padding: 20px 0; border: 0; border-top: 1px solid #3F3A33; background: transparent; color: {{t.color}}; cursor: pointer; font-family: inherit">
+            <span style="font-family: 'Shippori Mincho B1', serif; font-size: 20px; width: 32px; flex: none">{{t.num}}</span>
+            <span style="display: flex; flex-direction: column; gap: 4px; flex: 1"><span style="font-size: 15px; letter-spacing: 0.06em; line-height: 1.6">{{t.title}}</span><span style="font-size: 12px; color: #B9B1A4">{{t.len}}</span></span>
+            <span class="arw" aria-hidden="true" style="font-size: 16px">→</span>
+          </button>
+        </sc-for>
+        <a class="ul" href="https://www.instagram.com/hitori_project2026/" style="align-self: flex-start; margin-top: 24px; color: #F5F2EB; text-decoration: none; font-size: 14px; letter-spacing: 0.14em; padding: 8px 0">Instagramの映像を見る　→</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" style="max-width: 1320px; margin: 0 auto; padding: 160px 56px; display: flex; flex-direction: column; gap: 64px">
+  <div class="reveal" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}">循環 — CYCLE</p>
+      <h2 class="sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 40px; letter-spacing: 0.14em">一つの芋が、一つの応援になるまで。</h2>
+    </div>
+    <a class="ul" href="About.dc.html" style="text-decoration: none; font-size: 14px; letter-spacing: 0.16em; padding: 8px 0">くわしく　→</a>
+  </div>
+  <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); border-top: 1px solid #1C1A18">
+    <li class="reveal" style="padding: 40px 28px 48px; border-right: 1px solid #D6CFC2; display: flex; flex-direction: column; gap: 20px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 44px; color: {{accent}}">壱</span><h3 style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 24px; letter-spacing: 0.2em">育てる</h3><p style="margin: 0; font-size: 15px; line-height: 2.1; color: #5E5850">群馬の畑で、みんなで土に触れる。</p></li>
+    <li class="reveal" style="padding: 40px 28px 48px; border-right: 1px solid #D6CFC2; display: flex; flex-direction: column; gap: 20px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 44px; color: {{accent}}">弐</span><h3 style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 24px; letter-spacing: 0.2em">つくる</h3><p style="margin: 0; font-size: 15px; line-height: 2.1; color: #5E5850">干し芋へと、手間をかけて仕立てる。</p></li>
+    <li class="reveal" style="padding: 40px 28px 48px; border-right: 1px solid #D6CFC2; display: flex; flex-direction: column; gap: 20px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 44px; color: {{accent}}">参</span><h3 style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 24px; letter-spacing: 0.2em">届ける</h3><p style="margin: 0; font-size: 15px; line-height: 2.1; color: #5E5850">手に取る人へ、想いごと届ける。</p></li>
+    <li class="reveal" style="padding: 40px 28px 48px; display: flex; flex-direction: column; gap: 20px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 44px; color: {{accent}}">肆</span><h3 style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 24px; letter-spacing: 0.2em">還す</h3><p style="margin: 0; font-size: 15px; line-height: 2.1; color: #5E5850">実りを子どもたちと地域へ還す。</p></li>
+  </ol>
+</section>
+
+<section style="background: #EDE8DE">
+  <div class="pad" style="max-width: 1320px; margin: 0 auto; padding: 140px 56px; display: flex; flex-wrap: wrap; gap: 64px; align-items: center">
+    <a class="frame reveal" href="Hatake.dc.html" style="flex: 1 1 480px; min-width: 0; aspect-ratio: 4 / 3; position: relative; display: block; text-decoration: none">
+      <div class="ph" style="position: absolute; inset: 0; background: #CFC6B5; display: flex; align-items: center; justify-content: center; font-size: 13px; letter-spacing: 0.12em">［写真］掘りたてのさつまいもと土の手</div>
+    </a>
+    <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+      <p class="reveal" style="margin: 0; display: flex; align-items: center; gap: 14px; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}"><span class="breathe" style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}}"></span>畑のいま — NOW</p>
+      <h2 class="reveal sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 40px; line-height: 1.7; letter-spacing: 0.14em">十月。<br>さつまいも、実りの頃。</h2>
+      <p class="reveal" style="margin: 0; font-size: 16px; line-height: 2.3">［今月の畑のようすを2行ほどで］</p>
+      <a class="ul reveal" href="Hatake.dc.html" style="align-self: flex-start; text-decoration: none; font-size: 14px; letter-spacing: 0.16em; padding: 8px 0">畑と日記へ　→</a>
+    </div>
+  </div>
+</section>
+
+<section class="pad" style="max-width: 1200px; margin: 0 auto; padding: 160px 56px; display: flex; flex-direction: column; gap: 48px">
+  <div class="reveal" style="display: flex; flex-direction: column; gap: 16px">
+    <p style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}">関わる — JOIN</p>
+    <h2 class="sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 40px; letter-spacing: 0.14em">知ることも、ひとつの応援。</h2>
+  </div>
+  <div style="display: flex; flex-direction: column; border-top: 1px solid #1C1A18">
+    <a class="row reveal" href="https://www.instagram.com/hitori_project2026/" style="text-decoration: none; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px; padding: 36px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.3em; width: 120px; color: #5E5850">知る</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 26px; letter-spacing: 0.14em; flex: 1 1 280px">Instagramをフォローする</span><span class="arw" aria-hidden="true" style="font-size: 20px">→</span></a>
+    <a class="row reveal" href="https://denalist.base.shop/" style="text-decoration: none; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px; padding: 36px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.3em; width: 120px; color: #5E5850">求める</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 26px; letter-spacing: 0.14em; flex: 1 1 280px">干し芋をお求めいただく</span><span class="arw" aria-hidden="true" style="font-size: 20px">→</span></a>
+    <a class="row reveal" href="Join.dc.html" style="text-decoration: none; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px; padding: 36px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.3em; width: 120px; color: #5E5850">手を貸す</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 26px; letter-spacing: 0.14em; flex: 1 1 280px">畑のボランティアに参加する</span><span class="arw" aria-hidden="true" style="font-size: 20px">→</span></a>
+    <a class="row reveal" href="Join.dc.html" style="text-decoration: none; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px; padding: 36px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.3em; width: 120px; color: #5E5850">共に</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 26px; letter-spacing: 0.14em; flex: 1 1 280px">協賛・連携のご相談</span><span class="arw" aria-hidden="true" style="font-size: 20px">→</span></a>
+  </div>
+</section>
+
+<footer style="background: #1C1A18; color: #F5F2EB">
+  <div class="pad" style="max-width: 1320px; margin: 0 auto; padding: 96px 56px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <span style="display: flex; align-items: center; gap: 14px"><span style="width: 36px; height: 36px; background: {{accent}}; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700">一</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 22px; letter-spacing: 0.24em">一人プロジェクト</span></span>
+      <span style="font-size: 14px; letter-spacing: 0.12em; color: #D6CFC2">農業・子ども・地域・未来を、静かにつなぐ。</span>
+    </div>
+    <nav aria-label="フッターメニュー" style="display: flex; flex-wrap: wrap; gap: 14px 36px; font-size: 14px; letter-spacing: 0.14em">
+      <a class="ul" href="Main.dc.html" style="color: #F5F2EB; text-decoration: none">トップ</a>
+      <a class="ul" href="About.dc.html" style="color: #F5F2EB; text-decoration: none">想いとしくみ</a>
+      <a class="ul" href="Hatake.dc.html" style="color: #F5F2EB; text-decoration: none">畑と日記</a>
+      <a class="ul" href="Join.dc.html" style="color: #F5F2EB; text-decoration: none">関わる</a>
+      <a class="ul" href="https://www.instagram.com/hitori_project2026/" style="color: #F5F2EB; text-decoration: none">Instagram</a>
+    </nav>
+  </div>
+  <p class="pad" style="margin: 0; max-width: 1320px; margin: 0 auto; padding: 24px 56px 40px; font-size: 11px; letter-spacing: 0.2em; color: #B9B1A4; border-top: 1px solid #3F3A33; box-sizing: border-box">© 一人プロジェクト</p>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#A63A28","options":["#A63A28","#8A6A3A","#2F4A63","#1C1A18"]},"$preview":{"width":1440,"height":5400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { vid: 0, playing: false, bgPaused: false, sprouts: [] };
+  }
+  fx() {
+    if (!this._rr) {
+      this._rr = (el) => { this.root = el; };
+      this._tp = (e) => this.tap(e);
+    }
+    return { rootRef: this._rr, onTap: this._tp, sprouts: (this.state && this.state.sprouts) || [] };
+  }
+  tap(e) {
+    if (!this.root || !e) return;
+    const r = this.root.getBoundingClientRect();
+    const colors = ['#1C1A18', '#A63A28', '#8A6A3A'];
+    const id = Date.now() + '-' + Math.random().toString(36).slice(2, 7);
+    const p = { id: id, x: Math.round(e.clientX - r.left), y: Math.round(e.clientY - r.top), color: colors[Math.floor(Math.random() * colors.length)], rot: Math.round(Math.random() * 24 - 12) };
+    this.setState((s) => ({ sprouts: ((s && s.sprouts) || []).slice(-10).concat([p]) }));
+    setTimeout(() => this.setState((s) => ({ sprouts: ((s && s.sprouts) || []).filter((q) => q.id !== id) })), 1600);
+  }
+  renderVals() { return Object.assign(this.baseVals(), this.fx()); }
+  baseVals() {
+    const list = [
+      { title: '一人プロジェクトについて', len: '［再生時間］', desc: '［映像の説明を1〜2行で。例：畑から施設への納品まで、一年の歩みを静かに追った記録。］', tone: '#4A4339' },
+      { title: '［例］実りの日 — 収穫の記録', len: '［再生時間］', desc: '［映像の説明］', tone: '#55503F' },
+      { title: '［例］干し芋が仕上がるまで', len: '［再生時間］', desc: '［映像の説明］', tone: '#5A4638' }
+    ];
+    const nums = ['壱', '弐', '参'];
+    const videos = list.map((v, i) => ({
+      title: v.title, len: v.len, num: nums[i],
+      pressed: String(this.state.vid === i),
+      color: this.state.vid === i ? '#F5F2EB' : '#9C9488',
+      pick: () => this.setState({ vid: i, playing: false })
+    }));
+    return {
+      accent: this.props.accent ?? '#A63A28',
+      current: [list[this.state.vid]],
+      videos,
+      playing: this.state.playing,
+      notPlaying: !this.state.playing,
+      play: () => this.setState({ playing: true }),
+      pause: () => this.setState({ playing: false }),
+      bgPaused: this.state.bgPaused,
+      bgPlaying: !this.state.bgPaused,
+      bgClass: this.state.bgPaused ? 'paused' : '',
+      bgLabel: this.state.bgPaused ? '背景映像を再生' : '背景映像を一時停止',
+      toggleBg: () => this.setState({ bgPaused: !this.state.bgPaused })
+    };
+  }
+}
+</script>
+</body>
+</html>

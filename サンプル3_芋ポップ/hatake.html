@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>畑と日記｜一人プロジェクト</title>
+<meta name="description" content="さつまいも畑の一年と、一人プロジェクトの活動レポート・動画。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-page="hatake">
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div>
+        <h1 class="d-xl" style="font-size:clamp(44px,7vw,92px)">畑と日記</h1>
+        <p class="lead">農業体験の様子、商品づくりの背景、支援の実績、地域とのつながり。畑からのたよりを、少しずつお届けします。</p>
+      </div>
+      <div class="blob morph pop-in"><img src="https://1-project.jp/wp-content/uploads/2026/07/1248165937.jpg" alt="畑で野菜を手にする子ども" data-ph="畑の写真"></div>
+    </div>
+  </section>
+
+  <!-- 月のつまみで芋が育つ -->
+  <section class="sec tint">
+    <div class="wrap grow">
+      <div class="grow-stage pop-in">
+        <svg id="growSvg" viewBox="0 0 400 400" role="img" aria-label="さつまいも畑のようす">
+          <circle class="g sun" cx="320" cy="80" r="34" fill="#FFC233"/>
+          <g class="g snow" fill="#fff"><circle cx="80" cy="70" r="5"/><circle cx="150" cy="40" r="4"/><circle cx="230" cy="90" r="5"/><circle cx="300" cy="50" r="4"/><circle cx="120" cy="120" r="3"/></g>
+          <rect x="0" y="230" width="400" height="170" fill="#5B3A24"/>
+          <path d="M0 236c40-14 80-14 120 0s80 14 120 0 80-14 120 0 40 8 40 8v-14H0z" fill="#5B3A24"/>
+          <g class="g sprout"><path d="M120 232v-24M200 232v-24M280 232v-24" stroke="#2A8754" stroke-width="5" stroke-linecap="round"/><path d="M120 214c-12 0-18-8-18-16 12 0 18 8 18 16zM200 214c12 0 18-8 18-16-12 0-18 8-18 16zM280 214c-12 0-18-8-18-16 12 0 18 8 18 16z" fill="#3FA86C"/></g>
+          <g class="g vine" fill="#2A8754"><ellipse cx="90" cy="205" rx="46" ry="26"/><ellipse cx="160" cy="192" rx="50" ry="32"/><ellipse cx="240" cy="198" rx="54" ry="30"/><ellipse cx="315" cy="206" rx="46" ry="24"/><g fill="#3FA86C"><ellipse cx="120" cy="186" rx="26" ry="16"/><ellipse cx="205" cy="176" rx="28" ry="16"/><ellipse cx="282" cy="184" rx="24" ry="14"/></g></g>
+          <g class="g tubers" fill="#9E3A82"><ellipse cx="120" cy="290" rx="34" ry="20" transform="rotate(-12 120 290)"/><ellipse cx="200" cy="310" rx="38" ry="22"/><ellipse cx="282" cy="292" rx="34" ry="20" transform="rotate(14 282 292)"/><ellipse cx="160" cy="350" rx="28" ry="17"/><ellipse cx="246" cy="352" rx="30" ry="17"/></g>
+          <g class="g hoshi"><rect x="70" y="120" width="260" height="12" rx="6" fill="#8A6A4A"/><path d="M90 132v96M310 132v96" stroke="#8A6A4A" stroke-width="10"/>
+            <g fill="#E9A93A" stroke="#C47F1C" stroke-width="3"><rect x="104" y="140" width="34" height="62" rx="8"/><rect x="150" y="140" width="34" height="62" rx="8"/><rect x="196" y="140" width="34" height="62" rx="8"/><rect x="242" y="140" width="34" height="62" rx="8"/></g></g>
+        </svg>
+      </div>
+      <div>
+        <h2 class="d-l">さつまいもの一年</h2>
+        <p class="note" style="margin-top:8px">一般的な目安です。実際の畑の予定に差し替えます。</p>
+        <p class="grow-month" style="margin-top:22px" aria-live="polite"><span id="mNum">10</span><small>月</small></p>
+        <p class="grow-title" id="mTitle">収穫</p>
+        <p id="mBody">つるをたどって、土の中の芋を掘り出す。いちばんにぎやかな季節。</p>
+        <label class="sr-only" for="month" style="position:absolute;left:-9999px">月をえらぶ</label>
+        <input class="month-range no-imo" id="month" type="range" min="1" max="12" value="10">
+        <div class="month-ticks" aria-hidden="true"><span>1</span><span>3</span><span>5</span><span>7</span><span>9</span><span>12</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 活動レポート -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d-l">活動レポート</h2>
+        <a class="btn w" href="https://www.instagram.com/hitori_project2026/" target="_blank" rel="noopener">Instagramも見る</a>
+      </div>
+      <ul class="diary">
+        <li id="n1"><button class="diary-item" id="diaryBtn" aria-expanded="false">
+          <div class="thumb"><img src="https://1-project.jp/wp-content/uploads/2026/08/S__111403026-456x296.jpg" alt="" data-ph="納品の写真"></div>
+          <div class="diary-body"><span class="tag">活動レポート</span> <span class="note">2025.03.18</span><h3>希望館に干し芋を納品しました！</h3></div>
+        </button></li>
+        <li><div class="diary-item soon"><div class="thumb"><div class="ph">次の記事の写真</div></div><div class="diary-body"><span class="tag">お知らせ</span><h3>次のたよりは、まだ土の中です。</h3></div></div></li>
+        <li><div class="diary-item soon"><div class="thumb"><div class="ph">次の記事の写真</div></div><div class="diary-body"><span class="tag">活動レポート</span><h3>畑の様子を、ここに並べていきます。</h3></div></div></li>
+      </ul>
+      <div class="diary-open" id="diaryOpen">
+        <h3 class="d-m">希望館に干し芋を納品しました！</h3>
+        <p class="note">2025.03.18　投稿者：池田正視</p>
+        <p style="margin-top:12px">［記事の本文は、元のサイトの記事から移します。］</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 動画 -->
+  <section class="sec purple">
+    <div class="wrap two-col">
+      <div>
+        <h2 class="d-l">動画で見る畑</h2>
+        <p class="lead" style="margin-top:14px">収穫の日や、干し芋ができるまで。動画を公開したら、ここで再生できるようにします。</p>
+      </div>
+      <div>
+        <div class="movie" id="movie">
+          <div class="ph">［動画］一人プロジェクト紹介</div>
+          <button class="play no-imo" id="play" aria-label="動画を再生"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z" fill="#23161E"/></svg></button>
+        </div>
+        <p class="movie-msg" id="movieMsg" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+<script src="js/hatake.js"></script>
+</body>
+</html>

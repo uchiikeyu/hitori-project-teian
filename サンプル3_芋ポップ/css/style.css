@@ -1,0 +1,135 @@
+/* 一人プロジェクト サンプル3「芋が主役のポップなブランドサイト」— 共通 */
+:root{
+  --paper:#FFFFFF;
+  --tint:#FFF3CC;     /* はちみつの淡い色 */
+  --imo:#6B2559;      /* 芋の皮（濃） */
+  --imo2:#9E3A82;     /* 芋の皮（明） */
+  --mitsu:#FFC233;    /* 焼き芋の中身 */
+  --mitsu-d:#D99A00;
+  --ha:#2A8754;       /* 葉 */
+  --ink:#23161E;
+  --ink2:#5F5160;
+  --blob:58% 42% 55% 45% / 48% 60% 40% 52%;
+  --display:"Mochiy Pop One","Zen Maru Gothic",sans-serif;
+  --body:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Meiryo",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-weight:500;font-size:17px;line-height:1.95;color:var(--ink);background:var(--paper);overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+main{overflow-x:clip}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid var(--imo2);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.narrow{max-width:36em}
+
+/* ---------- 文字 ---------- */
+.d-xl{font-family:var(--display);font-weight:400;font-size:clamp(42px,8.4vw,108px);line-height:1.12;letter-spacing:.01em}
+.d-l{font-family:var(--display);font-weight:400;font-size:clamp(30px,4.6vw,54px);line-height:1.3}
+.d-m{font-family:var(--display);font-weight:400;font-size:clamp(22px,2.6vw,28px);line-height:1.4}
+.lead{font-size:clamp(17px,1.9vw,20px);color:var(--ink2);font-weight:700}
+p+p{margin-top:1em}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-weight:900;font-size:15px;color:var(--imo2);margin-bottom:14px}
+.kicker::before{content:"";width:22px;height:14px;border-radius:var(--blob);background:currentColor}
+
+/* ---------- ヘッダー ---------- */
+.site-head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-size:21px}
+.logo-mark{width:42px;height:30px;border-radius:var(--blob);background:var(--imo);position:relative;transition:transform .45s cubic-bezier(.3,1.7,.5,1)}
+.logo-mark::after{content:"";position:absolute;inset:7px 9px;border-radius:var(--blob);background:var(--mitsu);transform:scale(0);transition:transform .35s cubic-bezier(.3,1.7,.5,1)}
+.logo:hover .logo-mark{transform:rotate(-12deg)}
+.logo:hover .logo-mark::after{transform:scale(1)}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{text-decoration:none;font-weight:900;font-size:15px;padding:10px 16px;border-radius:999px;transition:background .2s,transform .25s cubic-bezier(.3,1.7,.5,1)}
+.nav a:hover{background:var(--tint);transform:translateY(-2px)}
+.nav a[aria-current="page"]{background:var(--imo);color:#fff}
+.nav a.nav-cta{background:var(--mitsu);color:var(--ink);margin-left:6px}
+.menu-btn{display:none;height:48px;padding:0 20px;border-radius:999px;background:var(--imo);color:#fff;font-weight:900}
+@media (max-width:900px){
+  .menu-btn{display:block;position:relative;z-index:2}
+  .nav{position:fixed;inset:0;z-index:1;flex-direction:column;justify-content:center;gap:6px;background:var(--mitsu);
+    clip-path:circle(0 at calc(100% - 50px) 36px);transition:clip-path .6s cubic-bezier(.7,0,.2,1);visibility:hidden}
+  .menu-open .nav{clip-path:circle(150% at calc(100% - 50px) 36px);visibility:visible}
+  .nav a,.nav a.nav-cta{font-family:var(--display);font-weight:400;font-size:30px;background:transparent;color:var(--ink);margin:0;transform:scale(.6);opacity:0;transition:transform .5s cubic-bezier(.3,1.7,.5,1),opacity .3s}
+  .nav a[aria-current="page"]{background:var(--imo);color:#fff}
+  .menu-open .nav a{transform:none;opacity:1}
+  .menu-open .nav a:nth-child(2){transition-delay:.06s}.menu-open .nav a:nth-child(3){transition-delay:.12s}
+  .menu-open .nav a:nth-child(4){transition-delay:.18s}.menu-open .nav a:nth-child(5){transition-delay:.24s}
+}
+
+/* スクロールに合わせて転がる芋 */
+.roll-track{position:absolute;left:0;right:0;bottom:-3px;height:3px;background:var(--tint)}
+.roll-fill{height:100%;width:0;background:var(--mitsu)}
+.roll-imo{position:absolute;bottom:-8px;left:0;width:26px;height:17px;margin-left:-13px;border-radius:var(--blob);background:var(--imo2);box-shadow:inset -3px -3px 0 rgba(0,0,0,.18)}
+
+/* ---------- ボタン ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 28px;border-radius:999px;font-weight:900;text-decoration:none;
+  background:var(--imo);color:#fff;transition:transform .25s cubic-bezier(.3,1.7,.5,1),background .2s}
+.btn:hover{transform:translateY(-3px) rotate(-1.5deg)}
+.btn:active{transform:scale(.94)}
+.btn.y{background:var(--mitsu);color:var(--ink)}
+.btn.w{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 3px var(--ink)}
+
+/* ---------- 芋の形の写真 ---------- */
+.blob{border-radius:var(--blob);overflow:hidden;position:relative;background:var(--tint);isolation:isolate}
+.blob img{width:100%;height:100%;object-fit:cover}
+.blob.morph{animation:morph 9s ease-in-out infinite}
+@keyframes morph{
+  0%,100%{border-radius:58% 42% 55% 45% / 48% 60% 40% 52%}
+  33%{border-radius:45% 55% 40% 60% / 58% 44% 56% 42%}
+  66%{border-radius:52% 48% 62% 38% / 42% 56% 44% 58%}}
+.ph{display:grid;place-items:center;width:100%;height:100%;padding:24px;text-align:center;font-size:14px;font-weight:700;color:var(--ink2);
+  background:repeating-linear-gradient(45deg,transparent 0 12px,rgba(107,37,89,.06) 12px 24px),var(--tint)}
+
+/* スクロールで「ぽよん」と出る */
+.pop-in{transform:scale(.7);opacity:0;transition:transform .8s cubic-bezier(.3,1.6,.5,1),opacity .4s}
+.pop-in.on{transform:none;opacity:1}
+
+/* ステッカー */
+.sticker{position:absolute;display:grid;place-items:center;text-align:center;width:118px;height:118px;border-radius:50%;background:var(--mitsu);
+  font-family:var(--display);font-size:16px;line-height:1.3;color:var(--ink);transform:rotate(-12deg);box-shadow:0 0 0 5px #fff;z-index:3}
+
+/* ---------- セクション ---------- */
+.sec{padding:clamp(80px,11vw,140px) 0}
+.sec.tint{background:var(--tint)}
+.sec.purple{background:var(--imo);color:#fff}
+.sec.purple .lead{color:#F1D9EA}
+.sec.purple .kicker{color:var(--mitsu)}
+.sec.yellow{background:var(--mitsu)}
+.sec.yellow .kicker{color:var(--imo)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 32px;margin-bottom:48px}
+
+/* 下層ページの頭 */
+.page-hero{padding:clamp(56px,8vw,100px) 0 clamp(56px,7vw,90px);position:relative}
+.page-hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.page-hero .lead{margin-top:20px}
+.page-hero .blob{aspect-ratio:5/4}
+@media (max-width:820px){.page-hero .wrap{grid-template-columns:1fr}}
+
+/* ---------- フッター ---------- */
+.site-foot{background:var(--ink);color:#EADCE5;padding:72px 0 32px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}
+.foot-catch{font-family:var(--display);font-size:clamp(26px,3vw,34px);line-height:1.4;color:var(--mitsu)}
+.site-foot ul{list-style:none;line-height:2.4;font-weight:700}
+.site-foot a{text-decoration:none}
+.site-foot a:hover{color:var(--mitsu)}
+.site-foot small{display:block;margin-top:56px;opacity:.6}
+@media (max-width:720px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>div:first-child{grid-column:1/-1}}
+
+/* ---------- タップで出る芋 ---------- */
+.mini-imo{position:fixed;left:0;top:0;z-index:999;width:30px;height:19px;margin:-10px 0 0 -15px;border-radius:var(--blob);background:var(--imo2);
+  box-shadow:inset -4px -3px 0 rgba(0,0,0,.2);pointer-events:none;will-change:transform}
+.mini-imo.y{background:var(--mitsu);box-shadow:inset -4px -3px 0 rgba(0,0,0,.12)}
+.mini-imo::after{content:"";position:absolute;left:12px;top:-6px;width:9px;height:7px;border-radius:0 100% 0 100%;background:var(--ha)}
+.tap-pop{position:fixed;z-index:998;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;border:3px solid var(--mitsu);pointer-events:none;animation:tappop .45s ease-out forwards}
+@keyframes tappop{to{transform:scale(4);opacity:0}}
+
+.note{font-size:14px;color:var(--ink2)}
+.tag{display:inline-block;white-space:nowrap;font-size:13px;font-weight:900;padding:3px 12px;border-radius:999px;background:var(--tint);color:var(--imo)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .pop-in{transform:none;opacity:1}
+}

@@ -1,0 +1,101 @@
+/* ページごとのスタイル */
+
+/* ===== トップ：最初の画面 ===== */
+.hero{padding:clamp(40px,6vw,80px) 0 clamp(64px,8vw,110px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(40px,6.2vw,86px)}
+.hl{white-space:nowrap;background:linear-gradient(var(--mitsu),var(--mitsu)) 0 88%/0 38% no-repeat;animation:marker .7s cubic-bezier(.6,0,.3,1) forwards;padding:0 .04em}
+.hl:nth-of-type(2){animation-delay:.25s}.hl:nth-of-type(3){animation-delay:.5s}
+@keyframes marker{to{background-size:100% 38%}}
+.hero-text .lead{margin-top:24px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+
+.hero-imo-wrap{position:relative;padding:20px 0 0}
+.hero-imo{position:relative;display:block;width:100%;aspect-ratio:5/4;border-radius:var(--blob);animation:nudge 5s ease-in-out 1.6s infinite}
+.hero-imo.open{animation:none}
+@keyframes nudge{0%,84%,100%{transform:none}88%{transform:rotate(-3deg) scale(1.02)}92%{transform:rotate(3deg)}96%{transform:rotate(-1deg)}}
+.hi-half{position:absolute;inset:0;border-radius:var(--blob);overflow:hidden;transition:transform .7s cubic-bezier(.3,1.5,.5,1);background:var(--tint)}
+.hi-half img,.hi-half .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hi-half::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 clamp(10px,1.6vw,16px) var(--imo);pointer-events:none}
+.hi-half.l{clip-path:inset(0 49.7% 0 0)}
+.hi-half.r{clip-path:inset(0 0 0 50%)}
+.hi-half.f{z-index:2}
+.hero-imo.open .hi-half.f{opacity:0}
+.hero-imo.open .hi-half.l{transform:translateX(-20%) rotate(-12deg)}
+.hero-imo.open .hi-half.r{transform:translateX(20%) rotate(12deg)}
+.hi-inside{position:absolute;inset:8% 14%;border-radius:var(--blob);background:radial-gradient(circle at 40% 40%,#FFE08A,var(--mitsu) 60%,#F0A800);display:grid;place-items:center;
+  transform:scale(.6);opacity:0;transition:transform .6s cubic-bezier(.3,1.6,.5,1),opacity .3s}
+.hero-imo.open .hi-inside{transform:none;opacity:1}
+.hi-word{font-family:var(--display);font-size:clamp(22px,3vw,34px);color:var(--imo)}
+.steam{position:absolute;top:-8%;width:12px;height:60px;border-radius:12px;border-left:5px solid rgba(255,255,255,.9);opacity:0}
+.steam.s1{left:34%}.steam.s2{left:50%;animation-delay:.3s!important}.steam.s3{left:66%;animation-delay:.6s!important}
+.hero-imo.open .steam{animation:steam 1.6s ease-out infinite}
+@keyframes steam{0%{transform:translateY(20px) scaleY(.6);opacity:0}30%{opacity:1}100%{transform:translateY(-50px) skewX(-14deg);opacity:0}}
+.hero-sticker{right:-6px;top:0}
+.hero-hint{text-align:center;font-weight:900;color:var(--imo2);margin-top:14px}
+
+/* ===== トップ：紹介 ===== */
+.intro{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,5vw,72px);align-items:center}
+@media (max-width:820px){.intro{grid-template-columns:1fr}}
+
+/* ===== つるを引っぱる ===== */
+.dig-count{font-weight:900}
+.dig-count b{font-family:var(--display);font-weight:400;font-size:56px;line-height:1;color:var(--imo);margin-right:4px}
+.dig{position:relative;height:clamp(440px,62vh,560px);border-radius:36px;overflow:hidden;background:#FFFBEE;touch-action:pan-x}
+.dig-soil{position:absolute;left:0;right:0;bottom:0;height:50%;z-index:2;background:#5B3A24;
+  background-image:radial-gradient(circle at 20% 40%,rgba(255,255,255,.06) 3px,transparent 4px),radial-gradient(circle at 70% 70%,rgba(255,255,255,.06) 3px,transparent 4px);background-size:44px 44px,60px 60px}
+.dig-soil::before{content:"";position:absolute;left:0;right:0;top:-22px;height:24px;background:radial-gradient(circle at 50% 100%,#5B3A24 70%,transparent 72%) 0 0/60px 48px repeat-x}
+.dig-plant{position:absolute;left:calc(50% - min(200px,42%));width:min(400px,84%);top:calc(50% - 100px);height:calc(100px + 46%);z-index:1}
+.dig-plant.ease{transition:transform .6s cubic-bezier(.3,1.5,.5,1)}
+.dig-handle{position:absolute;left:50%;top:0;width:120px;height:100px;margin-left:-60px;z-index:4;cursor:grab;touch-action:none;animation:tug 2.4s ease-in-out infinite}
+.dig.pulling .dig-handle,.dig.harvested .dig-handle{animation:none}
+.dig.pulling .dig-handle{cursor:grabbing}
+@keyframes tug{0%,70%,100%{transform:none}78%{transform:translateY(-10px) rotate(-4deg)}86%{transform:translateY(0) rotate(3deg)}}
+.dig-handle svg{width:100%;height:100%;overflow:visible}
+.dig-roots{position:absolute;left:0;top:96px;width:100%;height:calc(100% - 96px)}
+.tuber{position:absolute;width:68px;height:40px;margin-left:-34px;border-radius:var(--blob);background:var(--imo2);box-shadow:inset -7px -6px 0 rgba(0,0,0,.2);transition:transform .4s cubic-bezier(.3,1.8,.5,1)}
+.tuber.t2,.tuber.t4{transform:rotate(-14deg)}
+.tuber.t3,.tuber.t5{transform:rotate(12deg)}
+.tuber.out{transform:scale(1.12) rotate(-6deg)}
+.dig.harvested .tuber{animation:wiggle 1.2s ease-in-out infinite}
+.dig.harvested .tuber:nth-child(odd){animation-delay:.2s}
+@keyframes wiggle{0%,100%{rotate:-6deg}50%{rotate:6deg}}
+.dig-done{position:absolute;left:50%;bottom:20px;z-index:5;width:min(520px,calc(100% - 32px));background:#fff;border-radius:28px;padding:22px 26px 26px;text-align:center;
+  transform:translate(-50%,40px) scale(.8);opacity:0;transition:transform .5s cubic-bezier(.3,1.6,.5,1),opacity .3s}
+.dig-done.show{transform:translate(-50%,0);opacity:1}
+.dig-done .d-m{color:var(--imo)}
+.dig-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:14px}
+
+/* ===== 4つの段階（横スクロール） ===== */
+.steps{list-style:none;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:10px max(16px,calc((100vw - 1180px) / 2)) 24px;scroll-padding-inline:max(16px,calc((100vw - 1180px) / 2))}
+.steps::-webkit-scrollbar{display:none}
+.steps.grab{scroll-snap-type:none;cursor:grabbing}
+.step{flex:0 0 clamp(270px,30vw,340px);aspect-ratio:1/1.05;border-radius:var(--blob);background:var(--c);color:#fff;padding:clamp(34px,4vw,48px) clamp(38px,4.4vw,54px);
+  display:flex;flex-direction:column;justify-content:center;gap:6px;scroll-snap-align:start;cursor:pointer;user-select:none}
+.step:nth-child(even){border-radius:45% 55% 40% 60% / 58% 44% 56% 42%}
+.step-no{font-family:var(--display);font-size:64px;line-height:1;opacity:.35}
+.step b{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.3}
+.step span:last-child{font-weight:700;line-height:1.7}
+.step.boing{animation:boing .6s cubic-bezier(.3,1.7,.5,1)}
+@keyframes boing{0%{transform:scale(1)}30%{transform:scale(1.08,.92)}60%{transform:scale(.96,1.06)}100%{transform:scale(1)}}
+.steps-note{margin-top:4px}
+
+/* ===== 畑だより ===== */
+.news-feature{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.news-photo{display:block;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.news-photo:hover{transform:rotate(-2deg) scale(1.02)}
+.news-meta{font-weight:900;display:flex;align-items:center;gap:12px;color:var(--ink2)}
+@media (max-width:820px){.news-feature{grid-template-columns:1fr}}
+
+/* ===== グッズ ===== */
+.goods-teaser{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+@media (max-width:820px){.goods-teaser{grid-template-columns:1fr}}
+.mini-sw{display:flex;gap:10px;margin-top:22px}
+.mini-sw button{width:46px;height:46px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px rgba(255,255,255,.35);transition:transform .25s cubic-bezier(.3,1.7,.5,1),box-shadow .2s}
+.mini-sw button.on{transform:scale(1.15);box-shadow:0 0 0 4px var(--mitsu)}
+.cap-blob{aspect-ratio:4/3;border-radius:var(--blob);background:#F1D9EA;display:grid;place-items:center;animation:morph 9s ease-in-out infinite}
+.cap-blob svg{width:72%;transition:transform .3s}
+.cap-blob.hop svg{animation:hop .6s cubic-bezier(.3,1.6,.5,1)}
+@keyframes hop{0%{transform:none}35%{transform:translateY(-36px) rotate(-8deg) scale(1.05,.95)}70%{transform:scale(1.06,.92)}100%{transform:none}}

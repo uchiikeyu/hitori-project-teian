@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>関わる｜一人プロジェクト</title>
+<meta name="description" content="知る、買う、手伝う、協賛する。一人プロジェクトへの関わり方とお問い合わせ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-page="join">
+<main>
+  <section class="sec yellow" style="padding-top:clamp(56px,8vw,100px)">
+    <div class="wrap">
+      <h1 class="d-xl" style="font-size:clamp(40px,6.6vw,84px)">あなたも、<br>一粒の種に。</h1>
+      <p class="lead" style="color:var(--ink);margin-top:18px;max-width:34em">商品を買うことも、活動を知ることも、ボランティアとして関わることも。すべてが未来への応援になります。気になるものをタップしてください。</p>
+      <div class="ways" id="ways">
+        <button class="way" data-v="知る" aria-pressed="false"><span class="stamp" aria-hidden="true">応援<br>済</span><b>知る</b><span>Instagramをフォローして、活動を見守る</span></button>
+        <button class="way" data-v="買う" aria-pressed="false"><span class="stamp" aria-hidden="true">応援<br>済</span><b>買う</b><span>キャップや干し芋を手に取る</span></button>
+        <button class="way" data-v="手伝う" aria-pressed="false"><span class="stamp" aria-hidden="true">応援<br>済</span><b>手伝う</b><span>ボランティアとして畑や販売に関わる</span></button>
+        <button class="way" data-v="協賛する" aria-pressed="false"><span class="stamp" aria-hidden="true">応援<br>済</span><b>協賛する</b><span>企業・団体として活動を支える</span></button>
+      </div>
+      <p class="ways-sum" id="waysSum" aria-live="polite"></p>
+      <p style="margin-top:8px"><a class="btn" href="#contact">お問い合わせへ</a></p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap two-col">
+      <div>
+        <h2 class="d-l">よくあるご質問</h2>
+        <p class="note" style="margin-top:10px">答えは先方に確認して記入します。</p>
+      </div>
+      <div class="faq">
+        <details><summary>畑のボランティアには、誰でも参加できますか？</summary><p>［参加できる人・年齢・申し込み方法］</p></details>
+        <details><summary>子どもと一緒に参加できますか？</summary><p>［親子での参加について］</p></details>
+        <details><summary>干し芋はどこで買えますか？</summary><p>［販売場所・オンラインショップについて］</p></details>
+        <details><summary>企業として協賛するには？</summary><p>［協賛の内容と、相談の窓口］</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap">
+      <h2 class="d-l">パートナー・協賛企業</h2>
+      <div class="partners">
+        <div class="ph">ロゴ</div><div class="ph">ロゴ</div><div class="ph">ロゴ</div><div class="ph">ロゴ</div>
+      </div>
+      <p class="note" style="margin-top:12px">掲載準備中です。</p>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <h2 class="d-l">お問い合わせ</h2>
+      <p class="lead" style="margin-top:12px">取材、協賛、ボランティア、商品について。お気軽にどうぞ。</p>
+      <form class="form" id="form" novalidate>
+        <label>お名前<input name="name" autocomplete="name" required></label>
+        <label>メールアドレス<input name="email" type="email" autocomplete="email" required></label>
+        <fieldset>
+          <legend>ご用件</legend>
+          <div class="checks" id="checks">
+            <label><input type="checkbox" value="知る">知る</label>
+            <label><input type="checkbox" value="買う">買う</label>
+            <label><input type="checkbox" value="手伝う">手伝う</label>
+            <label><input type="checkbox" value="協賛する">協賛する</label>
+            <label><input type="checkbox" value="その他">その他</label>
+          </div>
+        </fieldset>
+        <label>内容<textarea name="msg" rows="5"></textarea></label>
+        <p class="form-err" id="formErr" role="alert"></p>
+        <p><button class="btn" type="submit">送信する</button></p>
+        <p class="note">これはデザインの見本です。送信しても、内容はどこにも送られません。</p>
+      </form>
+      <div class="sent" id="sent" hidden>
+        <p class="d-m">送信しました</p>
+        <p>（見本のため、実際には送られていません）</p>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+<script src="js/join.js"></script>
+</body>
+</html>

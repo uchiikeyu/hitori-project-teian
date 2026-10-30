@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>関わる 和モダン</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#F5F2EB}
+a{color:#1C1A18}a:hover{color:#A63A28}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes draw{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+@keyframes lineX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes stamp{0%{opacity:0;transform:scale(1.6) rotate(-8deg)}60%{opacity:1;transform:scale(.94) rotate(0)}100%{opacity:1;transform:scale(1)}}
+@keyframes ripple{from{transform:scale(.2);opacity:.8}to{transform:scale(2.2);opacity:0}}
+@keyframes vanish{0%,55%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-12px)}}
+@keyframes fly1{from{transform:none;opacity:1}to{transform:translate(-28px,-22px);opacity:0}}
+@keyframes fly2{from{transform:none;opacity:1}to{transform:translate(26px,-28px);opacity:0}}
+@keyframes fly3{from{transform:none;opacity:1}to{transform:translate(2px,-40px);opacity:0}}
+.in{animation:fadeUp 1.4s cubic-bezier(.2,.7,.2,1) both}
+.fi{animation:fadeIn 2s ease both}
+.d1{animation-delay:.3s}.d2{animation-delay:.6s}.d3{animation-delay:.9s}
+.reveal{animation:fadeUp 1.2s cubic-bezier(.2,.7,.2,1) both}
+.rule{transform-origin:0 50%;animation:lineX 1.6s cubic-bezier(.2,.7,.2,1) both}
+@supports (animation-timeline: view()){.reveal{animation:fadeUp linear both;animation-timeline:view();animation-range:entry 0% cover 30%}.rule{animation:lineX linear both;animation-timeline:view();animation-range:entry 0% cover 35%}}
+.enso{stroke-dasharray:1000;animation:draw 3.2s cubic-bezier(.6,.1,.3,1) .3s both}
+.pop{animation:pop .8s cubic-bezier(.2,.7,.2,1) both}
+.stamp{animation:stamp .7s cubic-bezier(.2,.8,.2,1) .3s both}
+.ul{background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .5s}
+.ul:hover{background-size:100% 1px}
+.row{transition:padding .5s cubic-bezier(.2,.7,.2,1),background .5s}
+.row:hover{padding-left:20px;background:#EDE8DE}
+.row .arw{transition:transform .5s}
+.row:hover .arw{transform:translateX(8px)}
+.vt{writing-mode:vertical-rl}
+details summary{cursor:pointer;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details[open] .plus{transform:rotate(45deg)}
+.plus{transition:transform .4s}
+input:focus,textarea:focus{outline:2px solid #A63A28;outline-offset:2px}
+.rp{animation:ripple .9s ease-out both}
+.spw{animation:vanish 1.5s ease both}
+.sp{stroke-dasharray:80;animation:draw .7s ease-out both}
+.f1{animation:fly1 .9s ease-out both}.f2{animation:fly2 .9s ease-out both}.f3{animation:fly3 .9s ease-out both}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}.fx{display:none}}
+@media (max-width:720px){.vt{writing-mode:horizontal-tb !important}.hero-title{font-size:38px !important}.sec-title{font-size:28px !important}.pad{padding-left:20px !important;padding-right:20px !important}}
+</style>
+</helmet>
+<div ref="{{rootRef}}" onPointerDown="{{onTap}}" style="position: relative; font-family: 'Zen Kaku Gothic New', sans-serif; color: #1C1A18; background: #F5F2EB; width: 100%; box-sizing: border-box; overflow: hidden">
+<div class="fx" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; z-index: 50">
+  <sc-for list="{{sprouts}}" as="s" hint-placeholder-count="0">
+    <div style="position: absolute; left: {{s.x}}px; top: {{s.y}}px; width: 0; height: 0">
+      <span class="rp" style="position: absolute; left: -28px; top: -28px; width: 56px; height: 56px; border-radius: 50%; border: 1px solid {{s.color}}; box-sizing: border-box"></span>
+      <span class="f1" style="position: absolute; left: -2px; top: -2px; width: 4px; height: 4px; border-radius: 50%; background: #B08D57"></span>
+      <span class="f2" style="position: absolute; left: -2px; top: -2px; width: 4px; height: 4px; border-radius: 50%; background: #B08D57"></span>
+      <span class="f3" style="position: absolute; left: -2px; top: -2px; width: 3px; height: 3px; border-radius: 50%; background: #B08D57"></span>
+      <div class="spw" style="position: absolute; left: -22px; top: -52px; width: 44px; height: 52px">
+        <svg width="44" height="52" viewBox="0 0 40 48" fill="none" stroke="{{s.color}}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate({{s.rot}}deg); transform-origin: 50% 100%"><path class="sp" d="M20 46V24"></path><path class="sp" d="M20 28c0-8-6-13-14-13 0 8 6 13 14 13z"></path><path class="sp" d="M20 24c0-7 5-12 13-12 0 7-5 12-13 12z"></path></svg>
+      </div>
+    </div>
+  </sc-for>
+</div>
+
+<header class="pad" style="padding: 28px 56px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid #D6CFC2">
+  <a href="Main.dc.html" style="display: flex; align-items: center; gap: 14px; text-decoration: none">
+    <span style="width: 36px; height: 36px; background: {{accent}}; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700; color: #F5F2EB">一</span>
+    <span style="font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 20px; letter-spacing: 0.24em">一人プロジェクト</span>
+  </a>
+  <nav aria-label="メインメニュー" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 36px; font-size: 14px; letter-spacing: 0.16em">
+    <a class="ul" href="About.dc.html" style="text-decoration: none; padding: 6px 0">想いとしくみ</a>
+    <a class="ul" href="Hatake.dc.html" style="text-decoration: none; padding: 6px 0">畑と日記</a>
+    <a href="Join.dc.html" aria-current="page" style="text-decoration: none; background: #1C1A18; color: #F5F2EB; padding: 13px 25px">関わる</a>
+  </nav>
+</header>
+
+<section class="pad" style="position: relative; max-width: 1320px; margin: 0 auto; padding: 120px 56px 120px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 48px">
+  <div style="display: flex; flex-direction: column; gap: 24px; flex: 1 1 380px">
+    <p class="in d2" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}">JOIN US</p>
+    <p class="in d3" style="margin: 0; font-size: 16px; line-height: 2.3; letter-spacing: 0.06em">知る、求める、手を貸す、共に歩む。<br>どこからでも、めぐりの一人になれます。</p>
+  </div>
+  <div style="position: relative">
+    <svg width="380" height="380" viewBox="0 0 360 360" aria-hidden="true" style="position: absolute; right: -40px; top: -40px; opacity: 0.4"><path class="enso" d="M290 120c-30-60-110-90-180-55C40 100 30 200 80 260s160 70 210 10c40-50 30-110 0-150" fill="none" stroke="#B9B1A4" stroke-width="9" stroke-linecap="round"></path></svg>
+    <h1 class="vt hero-title fi d1" style="position: relative; margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 60px; letter-spacing: 0.3em; line-height: 1.5">関わる</h1>
+  </div>
+</section>
+
+<section class="pad" style="max-width: 1200px; margin: 0 auto; padding: 0 56px 160px">
+  <div style="display: flex; flex-direction: column; border-top: 1px solid #1C1A18">
+    <a class="row reveal" href="https://www.instagram.com/hitori_project2026/" style="text-decoration: none; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px; padding: 40px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 36px; width: 64px; color: {{accent}}">壱</span><span style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 360px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 26px; letter-spacing: 0.14em">知る</span><span style="font-size: 14px; line-height: 2; color: #5E5850">Instagramで畑の毎日を。シェアもまた、大きな応援です。</span></span><span class="arw" aria-hidden="true" style="font-size: 20px">→</span></a>
+    <a class="row reveal" href="https://denalist.base.shop/" style="text-decoration: none; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px; padding: 40px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 36px; width: 64px; color: {{accent}}">弐</span><span style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 360px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 26px; letter-spacing: 0.14em">求める</span><span style="font-size: 14px; line-height: 2; color: #5E5850">干し芋の売上は、児童養護施設と地域の活動へ還ります。</span></span><span class="arw" aria-hidden="true" style="font-size: 20px">→</span></a>
+    <a class="row reveal" href="#flow" style="text-decoration: none; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px; padding: 40px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 36px; width: 64px; color: {{accent}}">参</span><span style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 360px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 26px; letter-spacing: 0.14em">手を貸す</span><span style="font-size: 14px; line-height: 2; color: #5E5850">苗植えや収穫の日に、畑のボランティアとして。</span></span><span class="arw" aria-hidden="true" style="font-size: 20px">→</span></a>
+    <a class="row reveal" href="#contact" style="text-decoration: none; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px; padding: 40px 0; border-bottom: 1px solid #D6CFC2"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 36px; width: 64px; color: {{accent}}">肆</span><span style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 360px"><span style="font-family: 'Shippori Mincho B1', serif; font-size: 26px; letter-spacing: 0.14em">共に歩む</span><span style="font-size: 14px; line-height: 2; color: #5E5850">商品づくりや催事を共にするパートナーを募っています。</span></span><span class="arw" aria-hidden="true" style="font-size: 20px">→</span></a>
+  </div>
+</section>
+
+<section id="flow" style="background: #EDE8DE">
+  <div class="pad" style="max-width: 1320px; margin: 0 auto; padding: 140px 56px; display: flex; flex-direction: column; gap: 64px">
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}">流れ — FLOW</p>
+      <h2 class="sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 38px; letter-spacing: 0.14em">畑のボランティア</h2>
+    </div>
+    <div style="position: relative">
+      <div class="rule" aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 28px; height: 1px; background: #1C1A18"></div>
+      <ol style="list-style: none; margin: 0; padding: 0; position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px">
+        <li class="reveal" style="display: flex; flex-direction: column; gap: 20px"><span style="width: 56px; height: 56px; border-radius: 50%; border: 1px solid #1C1A18; background: #EDE8DE; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 20px">壱</span><h3 style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 22px; letter-spacing: 0.12em">お申し込み</h3><p style="margin: 0; font-size: 15px; line-height: 2.2">ご希望の日と人数を、下のお問い合わせからお送りください。</p></li>
+        <li class="reveal" style="display: flex; flex-direction: column; gap: 20px"><span style="width: 56px; height: 56px; border-radius: 50%; border: 1px solid #1C1A18; background: #EDE8DE; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 20px">弐</span><h3 style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 22px; letter-spacing: 0.12em">ご案内</h3><p style="margin: 0; font-size: 15px; line-height: 2.2">［集合場所・持ち物などのご案内方法］</p></li>
+        <li class="reveal" style="display: flex; flex-direction: column; gap: 20px"><span style="width: 56px; height: 56px; border-radius: 50%; border: 1px solid {{accent}}; background: {{accent}}; color: #F5F2EB; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 20px">参</span><h3 style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 22px; letter-spacing: 0.12em">畑にて</h3><p style="margin: 0; font-size: 15px; line-height: 2.2">はじめての方も、できることを、できる分だけ。</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="pad" style="max-width: 960px; margin: 0 auto; padding: 160px 56px; display: flex; flex-direction: column; gap: 40px">
+  <div class="reveal" style="display: flex; flex-direction: column; gap: 16px">
+    <p style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: {{accent}}">問答 — Q&amp;A</p>
+    <h2 class="sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 38px; letter-spacing: 0.14em">よくあるご質問</h2>
+  </div>
+  <div style="display: flex; flex-direction: column; border-top: 1px solid #1C1A18">
+    <details class="reveal" style="border-bottom: 1px solid #D6CFC2"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 80px; font-family: 'Shippori Mincho B1', serif; font-size: 19px; letter-spacing: 0.08em"><span><span style="color: {{accent}}">問</span>　子どもだけでも参加できますか。</span><span class="plus" aria-hidden="true" style="font-size: 24px; font-weight: 400">+</span></summary><p style="margin: 0 0 28px; font-size: 15px; line-height: 2.2"><span style="font-family: 'Shippori Mincho B1', serif; color: #5E5850">答</span>　［回答］</p></details>
+    <details class="reveal" style="border-bottom: 1px solid #D6CFC2"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 80px; font-family: 'Shippori Mincho B1', serif; font-size: 19px; letter-spacing: 0.08em"><span><span style="color: {{accent}}">問</span>　農作業がはじめてでも大丈夫ですか。</span><span class="plus" aria-hidden="true" style="font-size: 24px; font-weight: 400">+</span></summary><p style="margin: 0 0 28px; font-size: 15px; line-height: 2.2"><span style="font-family: 'Shippori Mincho B1', serif; color: #5E5850">答</span>　［回答］</p></details>
+    <details class="reveal" style="border-bottom: 1px solid #D6CFC2"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 80px; font-family: 'Shippori Mincho B1', serif; font-size: 19px; letter-spacing: 0.08em"><span><span style="color: {{accent}}">問</span>　売上はどのように使われますか。</span><span class="plus" aria-hidden="true" style="font-size: 24px; font-weight: 400">+</span></summary><p style="margin: 0 0 28px; font-size: 15px; line-height: 2.2"><span style="font-family: 'Shippori Mincho B1', serif; color: #5E5850">答</span>　［回答］</p></details>
+    <details class="reveal" style="border-bottom: 1px solid #D6CFC2"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 80px; font-family: 'Shippori Mincho B1', serif; font-size: 19px; letter-spacing: 0.08em"><span><span style="color: {{accent}}">問</span>　企業として協賛するには。</span><span class="plus" aria-hidden="true" style="font-size: 24px; font-weight: 400">+</span></summary><p style="margin: 0 0 28px; font-size: 15px; line-height: 2.2"><span style="font-family: 'Shippori Mincho B1', serif; color: #5E5850">答</span>　［回答］</p></details>
+  </div>
+</section>
+
+<section id="contact" style="background: #1C1A18; color: #F5F2EB">
+  <div class="pad" style="max-width: 960px; margin: 0 auto; padding: 140px 56px; display: flex; flex-direction: column; gap: 48px">
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 13px; letter-spacing: 0.4em; color: #B08D57">便り — CONTACT</p>
+      <h2 class="sec-title" style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 600; font-size: 38px; letter-spacing: 0.14em">お問い合わせ</h2>
+    </div>
+    <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+      <div class="pop" style="border: 1px solid #3F3A33; padding: 72px 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center">
+        <span class="stamp" aria-hidden="true" style="width: 64px; height: 64px; border: 2px solid {{accent}}; color: #F5F2EB; background: {{accent}}; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 16px; font-weight: 700; line-height: 1.1">受<br>領</span>
+        <p style="margin: 0; font-family: 'Shippori Mincho B1', serif; font-size: 26px; letter-spacing: 0.14em">ありがとうございます。</p>
+        <p style="margin: 0; font-size: 15px; line-height: 2.2; color: #D6CFC2">あなたの種、たしかにお預かりしました。<br>担当より、追ってご連絡いたします。</p>
+        <button type="button" class="ul" onClick="{{reset}}" style="min-height: 44px; padding: 8px 0; border: 0; background-color: transparent; color: #F5F2EB; font-family: inherit; font-size: 14px; letter-spacing: 0.16em; cursor: pointer">もう一度送る</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 32px">
+        <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+          <legend style="font-size: 13px; letter-spacing: 0.2em; padding: 0 0 12px; color: #D6CFC2">ご用件</legend>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 32px; font-size: 15px">
+            <label style="display: flex; align-items: center; gap: 10px; min-height: 44px"><input type="radio" name="kind" checked style="width: 18px; height: 18px; accent-color: #A63A28">ボランティア</label>
+            <label style="display: flex; align-items: center; gap: 10px; min-height: 44px"><input type="radio" name="kind" style="width: 18px; height: 18px; accent-color: #A63A28">協賛・連携</label>
+            <label style="display: flex; align-items: center; gap: 10px; min-height: 44px"><input type="radio" name="kind" style="width: 18px; height: 18px; accent-color: #A63A28">取材・その他</label>
+          </div>
+        </fieldset>
+        <label style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; letter-spacing: 0.2em; color: #D6CFC2">お名前<input type="text" style="min-height: 52px; padding: 0 4px; border: 0; border-bottom: 1px solid #8C8478; background: transparent; color: #F5F2EB; font-family: inherit; font-size: 16px; letter-spacing: 0.04em"></label>
+        <label style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; letter-spacing: 0.2em; color: #D6CFC2">メールアドレス<input type="email" style="min-height: 52px; padding: 0 4px; border: 0; border-bottom: 1px solid #8C8478; background: transparent; color: #F5F2EB; font-family: inherit; font-size: 16px; letter-spacing: 0.04em"></label>
+        <label style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; letter-spacing: 0.2em; color: #D6CFC2">ご用件の詳細<textarea rows="5" style="padding: 12px 4px; border: 0; border-bottom: 1px solid #8C8478; background: transparent; color: #F5F2EB; font-family: inherit; font-size: 16px; resize: vertical"></textarea></label>
+        <button type="submit" style="align-self: flex-start; min-height: 56px; padding: 16px 48px; border: 1px solid #F5F2EB; background: #F5F2EB; color: #1C1A18; font-family: inherit; font-size: 14px; letter-spacing: 0.24em; cursor: pointer">送信する</button>
+      </form>
+    </sc-if>
+  </div>
+</section>
+
+<footer style="background: #141210; color: #F5F2EB">
+  <div class="pad" style="max-width: 1320px; margin: 0 auto; padding: 96px 56px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <span style="display: flex; align-items: center; gap: 14px"><span style="width: 36px; height: 36px; background: {{accent}}; display: flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700">一</span><span style="font-family: 'Shippori Mincho B1', serif; font-size: 22px; letter-spacing: 0.24em">一人プロジェクト</span></span>
+      <span style="font-size: 14px; letter-spacing: 0.12em; color: #D6CFC2">農業・子ども・地域・未来を、静かにつなぐ。</span>
+    </div>
+    <nav aria-label="フッターメニュー" style="display: flex; flex-wrap: wrap; gap: 14px 36px; font-size: 14px; letter-spacing: 0.14em">
+      <a class="ul" href="Main.dc.html" style="color: #F5F2EB; text-decoration: none">トップ</a>
+      <a class="ul" href="About.dc.html" style="color: #F5F2EB; text-decoration: none">想いとしくみ</a>
+      <a class="ul" href="Hatake.dc.html" style="color: #F5F2EB; text-decoration: none">畑と日記</a>
+      <a class="ul" href="Join.dc.html" style="color: #F5F2EB; text-decoration: none">関わる</a>
+    </nav>
+  </div>
+  <p class="pad" style="margin: 0 auto; max-width: 1320px; padding: 24px 56px 40px; font-size: 11px; letter-spacing: 0.2em; color: #B9B1A4; border-top: 1px solid #3F3A33; box-sizing: border-box">© 一人プロジェクト</p>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#A63A28","options":["#A63A28","#8A6A3A","#2F4A63","#1C1A18"]},"$preview":{"width":1440,"height":4000}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sent: false, sprouts: [] };
+  }
+  fx() {
+    if (!this._rr) {
+      this._rr = (el) => { this.root = el; };
+      this._tp = (e) => this.tap(e);
+    }
+    return { rootRef: this._rr, onTap: this._tp, sprouts: (this.state && this.state.sprouts) || [] };
+  }
+  tap(e) {
+    if (!this.root || !e) return;
+    const r = this.root.getBoundingClientRect();
+    const colors = ['#1C1A18', '#A63A28', '#8A6A3A'];
+    const id = Date.now() + '-' + Math.random().toString(36).slice(2, 7);
+    const p = { id: id, x: Math.round(e.clientX - r.left), y: Math.round(e.clientY - r.top), color: colors[Math.floor(Math.random() * colors.length)], rot: Math.round(Math.random() * 24 - 12) };
+    this.setState((s) => ({ sprouts: ((s && s.sprouts) || []).slice(-10).concat([p]) }));
+    setTimeout(() => this.setState((s) => ({ sprouts: ((s && s.sprouts) || []).filter((q) => q.id !== id) })), 1600);
+  }
+  renderVals() {
+    return Object.assign({
+      accent: this.props.accent ?? '#A63A28',
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false })
+    }, this.fx());
+  }
+}
+</script>
+</body>
+</html>

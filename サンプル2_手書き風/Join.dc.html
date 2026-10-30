@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>関わってみる</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#F3ECDF}
+a{color:#3B2F25}a:hover{color:#9C4A2E}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes sway{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.in{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}
+.reveal{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both}
+@supports (animation-timeline: view()){.reveal{animation:fadeUp linear both;animation-timeline:view();animation-range:entry 0% cover 28%}}
+.grow{transform-origin:0 50%;animation:growX 1.4s cubic-bezier(.2,.7,.2,1) .3s both}
+.pop{animation:pop .5s cubic-bezier(.2,.7,.2,1) both}
+.bob{animation:bob 3s ease-in-out infinite}
+.b2{animation-delay:.6s}.b3{animation-delay:1.2s}
+.sway{transform-origin:50% 100%;animation:sway 3.2s ease-in-out infinite}
+.lift{transition:transform .3s ease,box-shadow .3s ease}
+.lift:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(59,47,37,.16)}
+.ul{background-image:linear-gradient(currentColor,currentColor);background-size:0 2px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .3s}
+.ul:hover{background-size:100% 2px}
+details summary{cursor:pointer;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details[open] .plus{transform:rotate(45deg)}
+.plus{transition:transform .3s}
+input:focus,textarea:focus{outline:3px solid #9C4A2E;outline-offset:2px}
+@keyframes sproutUp{0%{transform:scale(0);opacity:0}25%{transform:scale(1.2);opacity:1}45%{transform:scale(1)}75%{opacity:1}100%{transform:translateY(-16px) scale(.9);opacity:0}}
+@keyframes ripple{from{transform:scale(.3);opacity:.9}to{transform:scale(1.9);opacity:0}}
+@keyframes fly1{from{transform:translate(0,0);opacity:1}to{transform:translate(-30px,-26px);opacity:0}}
+@keyframes fly2{from{transform:translate(0,0);opacity:1}to{transform:translate(30px,-30px);opacity:0}}
+@keyframes fly3{from{transform:translate(0,0);opacity:1}to{transform:translate(4px,-46px);opacity:0}}
+.sp{transform-origin:50% 100%;animation:sproutUp 1.3s cubic-bezier(.2,.8,.2,1) both}
+.rp{animation:ripple .7s ease-out both}
+.f1{animation:fly1 .8s ease-out both}.f2{animation:fly2 .8s ease-out both}.f3{animation:fly3 .8s ease-out both}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}.fx{display:none}}
+@media (max-width:720px){.hero-title{font-size:40px !important}.sec-title{font-size:30px !important}.pad{padding-left:20px !important;padding-right:20px !important}}
+</style>
+</helmet>
+<div ref="{{rootRef}}" onPointerDown="{{onTap}}" style="position: relative; font-family: 'Zen Kaku Gothic New', sans-serif; color: #3B2F25; background: #F3ECDF; width: 100%; box-sizing: border-box; overflow: hidden">
+<div class="fx" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; z-index: 50">
+  <sc-for list="{{sprouts}}" as="s" hint-placeholder-count="0">
+    <div style="position: absolute; left: {{s.x}}px; top: {{s.y}}px; width: 0; height: 0">
+      <span class="rp" style="position: absolute; left: -26px; top: -26px; width: 52px; height: 52px; border-radius: 50%; border: 2px solid {{s.color}}; box-sizing: border-box"></span>
+      <span class="f1" style="position: absolute; left: -4px; top: -4px; width: 8px; height: 8px; border-radius: 50%; background: #C9B48D"></span>
+      <span class="f2" style="position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: #E0A988"></span>
+      <span class="f3" style="position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: #9DBB86"></span>
+      <div style="position: absolute; left: -24px; top: -56px; width: 48px; height: 56px; transform: rotate({{s.rot}}deg); transform-origin: 50% 100%">
+        <svg class="sp" width="48" height="56" viewBox="0 0 40 48"><path d="M20 46V24" fill="none" stroke="#4E7A3A" stroke-width="2.6" stroke-linecap="round"></path><path d="M20 28c0-8-6-13-14-13 0 8 6 13 14 13z" fill="{{s.color}}" stroke="#4E7A3A" stroke-width="1.6" stroke-linejoin="round"></path><path d="M20 24c0-7 5-12 13-12 0 7-5 12-13 12z" fill="{{s.color}}" stroke="#4E7A3A" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+  </sc-for>
+</div>
+
+<header class="pad" style="max-width: 1280px; margin: 0 auto; padding: 24px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+  <a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+    <svg class="sway" width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#4E7A3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 34V18"></path><path d="M20 22c0-6-5-10-11-10 0 6 5 10 11 10z"></path><path d="M20 18c0-5 4-9 10-9 0 5-4 9-10 9z"></path></svg>
+    <span style="font-family: 'Klee One', serif; font-weight: 600; font-size: 24px; letter-spacing: 0.08em">一人プロジェクト</span>
+  </a>
+  <nav aria-label="メインメニュー" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 15px; font-weight: 500">
+    <a class="ul" href="About.dc.html" style="text-decoration: none; padding: 6px 0">想いとしくみ</a>
+    <a class="ul" href="Hatake.dc.html" style="text-decoration: none; padding: 6px 0">畑と日記</a>
+    <a href="Join.dc.html" aria-current="page" style="text-decoration: none; background: #3B2F25; color: #FBF7EF; padding: 12px 22px; border-radius: 999px">関わってみる</a>
+  </nav>
+</header>
+
+<section class="pad" style="max-width: 1280px; margin: 0 auto; padding: 72px 48px 80px; display: flex; flex-direction: column; gap: 20px">
+  <p class="in d1" style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.24em; color: {{accent}}">JOIN US</p>
+  <h1 class="hero-title in d2" style="margin: 0; font-family: 'Klee One', serif; font-weight: 600; font-size: 60px; line-height: 1.35">関わってみる</h1>
+  <p class="in d3" style="margin: 0; font-size: 18px; line-height: 2">知る、買う、手を動かす、組む。どこからでも、循環の一人になれます。</p>
+</section>
+
+<section class="pad" style="max-width: 1280px; margin: 0 auto; padding: 0 48px 112px">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+    <a class="reveal lift" href="https://www.instagram.com/hitori_project2026/" style="text-decoration: none; background: #3B2F25; color: #FBF7EF; border-radius: 24px; padding: 36px 28px; display: flex; flex-direction: column; gap: 14px; min-height: 220px"><span style="font-family: 'Klee One', serif; font-size: 40px">01</span><span style="font-size: 24px; font-weight: 700">フォローして知る</span><span style="font-size: 15px; line-height: 1.8">Instagramで畑の毎日を。シェアも大きな応援になります。</span></a>
+    <a class="reveal lift" href="https://denalist.base.shop/" style="text-decoration: none; background: #FBF7EF; border-radius: 24px; padding: 36px 28px; display: flex; flex-direction: column; gap: 14px; min-height: 220px"><span style="font-family: 'Klee One', serif; font-size: 40px; color: #6B4F35">02</span><span style="font-size: 24px; font-weight: 700">干し芋を買う</span><span style="font-size: 15px; line-height: 1.8">売上は児童養護施設や地域の活動へ還元されます。</span></a>
+    <a class="reveal lift" href="#volunteer" style="text-decoration: none; background: #FBF7EF; border-radius: 24px; padding: 36px 28px; display: flex; flex-direction: column; gap: 14px; min-height: 220px"><span style="font-family: 'Klee One', serif; font-size: 40px; color: #6B4F35">03</span><span style="font-size: 24px; font-weight: 700">畑に参加する</span><span style="font-size: 15px; line-height: 1.8">苗植えや収穫の日に、ボランティアとして。</span></a>
+    <a class="reveal lift" href="#contact" style="text-decoration: none; background: {{accent}}; color: #FFFFFF; border-radius: 24px; padding: 36px 28px; display: flex; flex-direction: column; gap: 14px; min-height: 220px"><span style="font-family: 'Klee One', serif; font-size: 40px">04</span><span style="font-size: 24px; font-weight: 700">協賛・連携する</span><span style="font-size: 15px; line-height: 1.8">商品づくりやイベントのパートナーを募集しています。</span></a>
+  </div>
+</section>
+
+<section id="volunteer" style="background: #FBF7EF">
+  <div class="pad" style="max-width: 1280px; margin: 0 auto; padding: 112px 48px; display: flex; flex-direction: column; gap: 56px">
+    <h2 class="sec-title reveal" style="margin: 0; font-family: 'Klee One', serif; font-weight: 600; font-size: 44px">畑ボランティアの流れ</h2>
+    <div style="position: relative">
+      <div class="grow" aria-hidden="true" style="position: absolute; left: 60px; right: 60px; top: 48px; height: 3px; background-image: repeating-linear-gradient(90deg, #C9B48D 0 10px, transparent 10px 20px)"></div>
+      <ol style="list-style: none; margin: 0; padding: 0; position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px">
+        <li class="reveal" style="display: flex; flex-direction: column; gap: 16px"><span class="bob" style="width: 96px; height: 96px; border-radius: 50%; background: #C9DDB8; display: flex; align-items: center; justify-content: center; font-family: 'Klee One', serif; font-size: 32px; font-weight: 600">1</span><h3 style="margin: 0; font-size: 22px">フォームから申しこむ</h3><p style="margin: 0; font-size: 16px; line-height: 1.9">参加したい日や人数を、下のフォームで送ってください。</p></li>
+        <li class="reveal" style="display: flex; flex-direction: column; gap: 16px"><span class="bob b2" style="width: 96px; height: 96px; border-radius: 50%; background: #E8C9A8; display: flex; align-items: center; justify-content: center; font-family: 'Klee One', serif; font-size: 32px; font-weight: 600">2</span><h3 style="margin: 0; font-size: 22px">日程と持ち物の連絡</h3><p style="margin: 0; font-size: 16px; line-height: 1.9">［集合場所・持ち物などのご案内方法］</p></li>
+        <li class="reveal" style="display: flex; flex-direction: column; gap: 16px"><span class="bob b3" style="width: 96px; height: 96px; border-radius: 50%; background: {{accent}}; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Klee One', serif; font-size: 32px; font-weight: 600">3</span><h3 style="margin: 0; font-size: 22px">畑で一緒に作業</h3><p style="margin: 0; font-size: 16px; line-height: 1.9">はじめてでも大丈夫。できることを、できる分だけ。</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="pad" style="max-width: 880px; margin: 0 auto; padding: 112px 48px; display: flex; flex-direction: column; gap: 32px">
+  <h2 class="sec-title reveal" style="margin: 0; font-family: 'Klee One', serif; font-weight: 600; font-size: 44px">よくある質問</h2>
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <details class="reveal" style="background: #FBF7EF; border-radius: 16px; padding: 4px 24px"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-size: 18px; font-weight: 700">子どもだけで参加できますか？<span class="plus" aria-hidden="true" style="font-size: 28px; font-weight: 400">+</span></summary><p style="margin: 0 0 20px; font-size: 16px; line-height: 1.9">［回答］</p></details>
+    <details class="reveal" style="background: #FBF7EF; border-radius: 16px; padding: 4px 24px"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-size: 18px; font-weight: 700">農作業の経験がなくても大丈夫ですか？<span class="plus" aria-hidden="true" style="font-size: 28px; font-weight: 400">+</span></summary><p style="margin: 0 0 20px; font-size: 16px; line-height: 1.9">［回答］</p></details>
+    <details class="reveal" style="background: #FBF7EF; border-radius: 16px; padding: 4px 24px"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-size: 18px; font-weight: 700">売上はどのように使われますか？<span class="plus" aria-hidden="true" style="font-size: 28px; font-weight: 400">+</span></summary><p style="margin: 0 0 20px; font-size: 16px; line-height: 1.9">［回答］</p></details>
+    <details class="reveal" style="background: #FBF7EF; border-radius: 16px; padding: 4px 24px"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-size: 18px; font-weight: 700">企業として協賛する方法は？<span class="plus" aria-hidden="true" style="font-size: 28px; font-weight: 400">+</span></summary><p style="margin: 0 0 20px; font-size: 16px; line-height: 1.9">［回答］</p></details>
+  </div>
+</section>
+
+<section id="contact" style="background: #E9DCC4">
+  <div class="pad" style="max-width: 880px; margin: 0 auto; padding: 112px 48px; display: flex; flex-direction: column; gap: 32px">
+    <h2 class="sec-title reveal" style="margin: 0; font-family: 'Klee One', serif; font-weight: 600; font-size: 44px">お問い合わせ</h2>
+    <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+      <div class="pop" style="background: #FBF7EF; border-radius: 24px; padding: 48px 36px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+        <svg class="sway" width="64" height="64" viewBox="0 0 40 40" fill="none" stroke="#4E7A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 34V18"></path><path d="M20 22c0-6-5-10-11-10 0 6 5 10 11 10z"></path><path d="M20 18c0-5 4-9 10-9 0 5-4 9-10 9z"></path></svg>
+        <p style="margin: 0; font-family: 'Klee One', serif; font-size: 28px; font-weight: 600">ありがとうございます。</p>
+        <p style="margin: 0; font-size: 16px; line-height: 1.9">あなたの種、たしかに受け取りました。<br>担当より折り返しご連絡します。</p>
+        <button type="button" onClick="{{reset}}" style="min-height: 44px; padding: 10px 22px; border-radius: 999px; border: 2px solid #3B2F25; background: transparent; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer">もう一度送る</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{submit}}" style="background: #FBF7EF; border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 22px">
+        <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-size: 15px; font-weight: 700; padding: 0 0 10px">ご用件</legend>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 16px">
+            <label style="display: flex; align-items: center; gap: 8px; min-height: 44px"><input type="radio" name="kind" checked style="width: 20px; height: 20px; accent-color: #9C4A2E">ボランティア参加</label>
+            <label style="display: flex; align-items: center; gap: 8px; min-height: 44px"><input type="radio" name="kind" style="width: 20px; height: 20px; accent-color: #9C4A2E">協賛・連携</label>
+            <label style="display: flex; align-items: center; gap: 8px; min-height: 44px"><input type="radio" name="kind" style="width: 20px; height: 20px; accent-color: #9C4A2E">取材・その他</label>
+          </div>
+        </fieldset>
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 700">お名前<input type="text" style="min-height: 48px; padding: 0 14px; border: 2px solid #C9B48D; border-radius: 12px; background: #FFFFFF; font-family: inherit; font-size: 16px"></label>
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 700">メールアドレス<input type="email" style="min-height: 48px; padding: 0 14px; border: 2px solid #C9B48D; border-radius: 12px; background: #FFFFFF; font-family: inherit; font-size: 16px"></label>
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 700">メッセージ<textarea rows="5" style="padding: 12px 14px; border: 2px solid #C9B48D; border-radius: 12px; background: #FFFFFF; font-family: inherit; font-size: 16px; resize: vertical"></textarea></label>
+        <button type="submit" class="lift" style="align-self: flex-start; min-height: 52px; padding: 14px 36px; border-radius: 999px; border: 0; background: {{accent}}; color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer">送信する</button>
+      </form>
+    </sc-if>
+  </div>
+</section>
+
+<footer style="background: #3B2F25; color: #FBF7EF">
+  <div class="pad" style="max-width: 1280px; margin: 0 auto; padding: 64px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 12px"><span style="font-family: 'Klee One', serif; font-weight: 600; font-size: 26px; letter-spacing: 0.08em">一人プロジェクト</span><span style="font-size: 15px">農業・子ども・地域・未来を、静かにつなぐ。</span></div>
+    <nav aria-label="フッターメニュー" style="display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: 15px">
+      <a class="ul" href="Main.dc.html" style="color: #FBF7EF; text-decoration: none">トップ</a>
+      <a class="ul" href="About.dc.html" style="color: #FBF7EF; text-decoration: none">想いとしくみ</a>
+      <a class="ul" href="Hatake.dc.html" style="color: #FBF7EF; text-decoration: none">畑と日記</a>
+      <a class="ul" href="Join.dc.html" style="color: #FBF7EF; text-decoration: none">関わってみる</a>
+    </nav>
+  </div>
+  <p style="margin: 0; text-align: center; font-size: 12px; padding: 0 0 32px; color: #D9C6A5">Copyright © 一人プロジェクト. All Rights Reserved.</p>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9C4A2E","options":["#9C4A2E","#3E6330","#7A3E5C","#3B2F25"]},"$preview":{"width":1440,"height":3900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sent: false };
+  }
+  fx() {
+    if (!this._rr) {
+      this._rr = (el) => { this.root = el; };
+      this._tp = (e) => this.tap(e);
+    }
+    return { rootRef: this._rr, onTap: this._tp, sprouts: (this.state && this.state.sprouts) || [] };
+  }
+  tap(e) {
+    if (!this.root || !e) return;
+    const r = this.root.getBoundingClientRect();
+    const colors = ['#9DBB86', '#C9DDB8', '#E0A988', '#B8D19F'];
+    const id = Date.now() + '-' + Math.random().toString(36).slice(2, 7);
+    const p = { id: id, x: Math.round(e.clientX - r.left), y: Math.round(e.clientY - r.top), color: colors[Math.floor(Math.random() * colors.length)], rot: Math.round(Math.random() * 30 - 15) };
+    this.setState((s) => ({ sprouts: ((s && s.sprouts) || []).slice(-10).concat([p]) }));
+    setTimeout(() => this.setState((s) => ({ sprouts: ((s && s.sprouts) || []).filter((q) => q.id !== id) })), 1400);
+  }
+  renderVals() { return Object.assign(this.baseVals(), this.fx()); }
+  baseVals() {
+    return {
+      accent: this.props.accent ?? '#9C4A2E',
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

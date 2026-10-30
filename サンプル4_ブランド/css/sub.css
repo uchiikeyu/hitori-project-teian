@@ -1,0 +1,132 @@
+/* 下層ページ */
+.sub-hero{padding:clamp(150px,22vh,220px) 0 clamp(60px,8vw,100px)}
+.sub-en{font-size:18px;color:var(--gold);margin-bottom:10px}
+.two{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(36px,6vw,100px);align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+
+/* ===== 私たちについて ===== */
+.about-photo .photo{--py:0%;--clip:12%;height:clamp(320px,70vh,720px);clip-path:inset(0 var(--clip))}
+.about-photo .photo img{height:124%;margin-top:-12%;transform:translateY(var(--py));filter:grayscale(.6)}
+.values{margin-top:48px;border-top:1px solid var(--dark-line)}
+.value{border-bottom:1px solid var(--dark-line)}
+.value-head{width:100%;display:grid;grid-template-columns:4em 1fr 40px;align-items:center;gap:12px;padding:30px 0;text-align:left;transition:padding .6s var(--ease)}
+.value-head:hover{padding-left:16px}
+.value-head .num{color:var(--gold);font-size:18px}
+.value-t{font-weight:200;font-size:clamp(22px,2.8vw,34px);letter-spacing:.14em}
+.plus{position:relative;width:24px;height:24px;justify-self:end}
+.plus::before,.plus::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:currentColor;transition:transform .6s var(--ease)}
+.plus::after{transform:rotate(90deg)}
+.value.open .plus::after{transform:rotate(0)}
+.value.open .plus::before{transform:rotate(180deg)}
+.value-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
+.value-body p{overflow:hidden;padding-left:calc(4em + 12px);color:#C8C8C5}
+.value.open .value-body{grid-template-rows:1fr}
+.value.open .value-body p{padding-bottom:32px}
+@media (max-width:600px){.value-body p{padding-left:0}}
+
+.people-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,100px);align-items:start}
+@media (max-width:860px){.people-grid{grid-template-columns:1fr}}
+.people-desc{margin-top:36px;min-height:4.2em;color:var(--ink2);font-size:17px;max-width:24em}
+.people-desc.swap{animation:swap .7s var(--ease)}
+@keyframes swap{from{opacity:0;transform:translateY(12px)}}
+.people{list-style:none;border-top:1px solid var(--line)}
+.people button{width:100%;text-align:left;padding:18px 0;border-bottom:1px solid var(--line);font-weight:200;font-size:clamp(26px,3.6vw,46px);letter-spacing:.14em;line-height:1.5;transition:color .5s,padding .6s var(--ease)}
+.people.picking button{color:rgba(22,24,29,.22)}
+.people.picking button.on{color:var(--ink);padding-left:24px}
+.support-row{display:grid;grid-template-columns:8em 10em 1fr;gap:16px;padding:28px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.support-row .num{color:var(--gold)}
+.sup-name{font-weight:400;letter-spacing:.14em}
+.support-row.soon{color:var(--mute)}
+@media (max-width:600px){.support-row{grid-template-columns:1fr}}
+
+/* ===== プロジェクト一覧 ===== */
+.pj-filter{display:flex;flex-wrap:wrap;gap:8px 28px;margin-bottom:28px;font-size:13px;letter-spacing:.2em}
+.pj-filter button{position:relative;padding:8px 0;min-height:44px;color:var(--ink2)}
+.pj-filter button::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:0 50%;transition:transform .5s var(--ease)}
+.pj-filter button.on{color:var(--ink)}
+.pj-filter button.on::after{transform:scaleX(1)}
+.pj-list{list-style:none;border-top:1px solid var(--line)}
+.pj-row-li.in{animation:rowin .8s var(--ease) backwards}
+@keyframes rowin{from{opacity:0;transform:translateY(20px)}}
+.pj-row{width:100%;display:grid;grid-template-columns:5em 1fr auto;grid-template-areas:"no name st" "no sub en";gap:4px 20px;align-items:baseline;text-align:left;padding:clamp(28px,4vw,48px) 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden;isolation:isolate;transition:color .6s var(--ease),padding .6s var(--ease)}
+.pj-row::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--ink);transform:scaleY(0);transform-origin:50% 100%;transition:transform .6s var(--ease)}
+.pj-row:hover,.pj-row:focus-visible{color:var(--dark-text);padding-left:24px;padding-right:24px}
+.pj-row:hover::before,.pj-row:focus-visible::before{transform:none}
+.pj-row-no{grid-area:no;color:var(--gold);font-size:20px}
+.pj-row-name{grid-area:name;font-weight:200;font-size:clamp(28px,5vw,64px);letter-spacing:.12em;line-height:1.3}
+.pj-row-en{grid-area:en;color:var(--gold);justify-self:end}
+.pj-row-sub{grid-area:sub}
+.pj-row:hover .pj-row-sub,.pj-row:hover .pj-row-st{color:#A6A7AB}
+.pj-row-st{grid-area:st;justify-self:end;border:1px solid currentColor;border-radius:999px;padding:2px 14px}
+.pj-peek{position:fixed;left:0;top:0;z-index:40;width:300px;height:400px;pointer-events:none;opacity:0;scale:.85;transition:opacity .4s,scale .6s var(--ease)}
+.pj-peek .photo{height:100%}
+.pj-peek.show{opacity:1;scale:1}
+@media (max-width:600px){.pj-row{grid-template-columns:3em 1fr;grid-template-areas:"no name" "no sub" "no st"}.pj-row-en{display:none}.pj-row-st{justify-self:start;margin-top:8px}}
+
+/* ===== 関わる ===== */
+.ways{border-top:1px solid var(--line)}
+.way{width:100%;display:grid;grid-template-columns:4em 1fr auto 40px;align-items:center;gap:16px;text-align:left;padding:30px 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden;isolation:isolate;transition:color .6s var(--ease)}
+.way::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--ink);transform:scaleX(0);transform-origin:0 50%;transition:transform .8s var(--ease)}
+.way .num{color:var(--gold);padding-left:16px}
+.way-t{font-weight:200;font-size:clamp(26px,3.4vw,42px);letter-spacing:.14em}
+.check{width:22px;height:22px;border:1px solid currentColor;border-radius:50%;position:relative;justify-self:end;margin-right:16px}
+.check::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--gold);transform:scale(0);transition:transform .5s var(--ease)}
+.way.on{color:var(--dark-text)}
+.way.on::before{transform:none}
+.way.on .way-d{color:#A6A7AB}
+.way.on .check::after{transform:scale(1)}
+.ways-sum{margin-top:28px;min-height:2em;color:var(--ink2)}
+@media (max-width:600px){.way{grid-template-columns:3em 1fr 40px}.way-d{grid-column:2;grid-row:2}}
+
+.faq{border-top:1px solid var(--dark-line)}
+.faq details{border-bottom:1px solid var(--dark-line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:26px 0;font-weight:300;letter-spacing:.1em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:9px;height:9px;margin-top:8px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);transition:transform .5s var(--ease)}
+.faq details[open] summary::after{transform:rotate(225deg)}
+.faq details p{padding-bottom:26px;color:#A6A7AB}
+
+.form{display:grid;gap:28px;transition:opacity .5s,transform .5s var(--ease)}
+.form.leaving{opacity:0;transform:translateY(-20px)}
+.field{position:relative;display:block;border-bottom:1px solid var(--line)}
+.field input,.field textarea{width:100%;font:inherit;font-size:16px;letter-spacing:.06em;color:var(--ink);background:transparent;border:0;outline:none;padding:28px 0 12px;resize:vertical}
+.field span{position:absolute;left:0;top:28px;color:var(--ink2);font-size:15px;pointer-events:none;transition:transform .5s var(--ease),font-size .5s,color .3s;transform-origin:0 0}
+.field input:focus+span,.field input:not(:placeholder-shown)+span,.field textarea:focus+span,.field textarea:not(:placeholder-shown)+span{transform:translateY(-24px);font-size:12px;color:var(--gold)}
+.field::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:0 50%;transition:transform .6s var(--ease)}
+.field:focus-within::after{transform:scaleX(1)}
+.form fieldset{border:0}
+.checks{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.checks label{display:flex;align-items:center;gap:8px;padding:8px 18px;border:1px solid var(--line);border-radius:999px;cursor:pointer;font-size:14px;transition:background .4s,color .4s,border-color .4s}
+.checks label:has(input:checked){background:var(--ink);color:var(--white);border-color:var(--ink)}
+.checks input{position:absolute;opacity:0;pointer-events:none}
+.checks label:has(input:focus-visible){outline:1px solid var(--gold);outline-offset:3px}
+.form-err{color:#9C3B2E;font-size:14px}
+.form-err:empty{display:none}
+.sent{padding:40px 0;animation:swap .8s var(--ease)}
+
+/* ===== 関わる：応援の4段階 ===== */
+.path{list-style:none;position:relative;padding-left:56px}
+.path-line{position:absolute;left:19px;top:0;bottom:0;width:1px;background:var(--line)}
+.path-line i{position:absolute;left:0;top:0;width:1px;height:0;background:var(--gold);transition:height .8s var(--ease)}
+.stage{border-bottom:1px solid var(--line)}
+.stage:first-of-type{border-top:1px solid var(--line)}
+.stage-head{position:relative;width:100%;display:grid;grid-template-columns:3.4em 1fr auto;align-items:baseline;gap:6px 16px;text-align:left;padding:30px 0;color:var(--mute);transition:color .6s var(--ease),padding .6s var(--ease)}
+.stage-head:hover{color:var(--ink);padding-left:10px}
+.stage-mark{position:absolute;left:-43px;top:50%;width:13px;height:13px;margin-top:-6px;border-radius:50%;border:1px solid var(--mute);background:var(--white);transition:background .5s,border-color .5s,transform .6s var(--ease)}
+.stage .num{color:var(--gold)}
+.stage-t{font-weight:200;font-size:clamp(24px,3.2vw,40px);letter-spacing:.12em;line-height:1.4}
+.stage-lead{justify-self:end}
+.stage.done .stage-head{color:var(--ink2)}
+.stage.done .stage-mark{background:var(--gold);border-color:var(--gold)}
+.stage.now .stage-head{color:var(--ink)}
+.stage.now .stage-mark{background:var(--ink);border-color:var(--ink);transform:scale(1.5)}
+.stage-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
+.stage-body>div{overflow:hidden;padding-left:calc(3.4em + 16px)}
+.stage-body p{color:var(--ink2);max-width:32em;margin-bottom:22px}
+.stage.now .stage-body{grid-template-rows:1fr}
+.stage.now .stage-body>div{padding-bottom:32px}
+@media (max-width:600px){
+  .path{padding-left:40px}.path-line{left:11px}.stage-mark{left:-35px}
+  .stage-head{grid-template-columns:2.4em 1fr}.stage-lead{grid-column:2;justify-self:start}
+  .stage-body>div{padding-left:0}
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>想いとしくみ｜一人プロジェクト</title>
+<meta name="description" content="一人の想いから、支援の循環を育てる。一人プロジェクトの想いと、育てる・つくる・届ける・還すのしくみ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-page="about">
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div>
+        <h1 class="d-xl" style="font-size:clamp(40px,6.6vw,84px)">一人の想いが、<br>未来の種になる。</h1>
+        <p class="lead">特別なことをしなければ支援にならない、のではなく。日々の暮らしの延長にある参加を大切にしています。</p>
+      </div>
+      <div class="blob morph pop-in"><img src="https://1-project.jp/wp-content/uploads/2026/07/1729655994.jpg" alt="収穫した野菜を抱える人たち" data-ph="畑で収穫する人たちの写真"></div>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap two-col">
+      <h2 class="d-l">誰かを一方的に<br>支えるのではなく。</h2>
+      <div class="narrow">
+        <p>関わる人みんなで、循環を育てる。畑で作物を育て、加工し、商品として届ける。その過程そのものが、学びや役割、出会いの場になります。</p>
+        <p>売上や利益は、児童養護施設への支援や地域での活動へ還元されます。一人ひとりの小さな参加が、次の誰かの安心や希望につながっていく。そんなやさしい循環を、群馬から丁寧に広げていきます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- めくるカード：4つの段階 -->
+  <section class="sec">
+    <div class="wrap cycle-grid">
+      <div>
+        <h2 class="d-l">ぐるっと回る、<br>4つの段階。</h2>
+        <p class="lead" style="margin-top:16px">いちばん上のカードを、左右にはじいてください。</p>
+        <ol class="cycle-dots" id="cycleDots" aria-label="いまの段階">
+          <li class="on">育てる</li><li>つくる</li><li>届ける</li><li>還す</li>
+        </ol>
+        <p class="cycle-laps" aria-live="polite" id="cycleLaps">めくって、一周させてみよう</p>
+      </div>
+      <div class="deck no-imo" id="deck">
+        <article class="card" style="--c:var(--imo)" data-i="3"><span class="card-no">4</span><h3>還す</h3><p>得られた利益を、児童養護施設などの支援先や地域へ還元する。そしてまた、畑へ。</p></article>
+        <article class="card" style="--c:var(--imo2)" data-i="2"><span class="card-no">3</span><h3>届ける</h3><p>販売や紹介によって、想いを広く届ける。買うことも、知ることも応援になります。</p></article>
+        <article class="card" style="--c:var(--mitsu-d)" data-i="1"><span class="card-no">2</span><h3>つくる</h3><p>加工や商品づくりを通じて、価値ある品へ育てる。干し芋も、ここから生まれます。</p></article>
+        <article class="card" style="--c:var(--ha)" data-i="0"><span class="card-no">1</span><h3>育てる</h3><p>畑で作物を育て、地域の恵みを形にする。農業体験は、誰もが関われる場にもなります。</p></article>
+        <button class="btn w deck-next" id="deckNext">次のカードへ</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 包み紙をむく：大切にしていること -->
+  <section class="sec purple">
+    <div class="wrap">
+      <h2 class="d-l">大切にしていること</h2>
+      <p class="lead" style="margin-top:12px">アルミホイルの焼き芋を、タップでむいてください。</p>
+      <div class="foils">
+        <button class="foil-imo no-imo" aria-expanded="false">
+          <span class="foil" aria-hidden="true"></span>
+          <span class="foil-in"><b>誰もが関われる場</b>農業体験やものづくりを通じて、誰もが関われる場をつくること。</span>
+        </button>
+        <button class="foil-imo no-imo" aria-expanded="false">
+          <span class="foil" aria-hidden="true"></span>
+          <span class="foil-in"><b>支援先への還元</b>売上や利益の一部を、児童養護施設や支援活動へ還元すること。</span>
+        </button>
+        <button class="foil-imo no-imo" aria-expanded="false">
+          <span class="foil" aria-hidden="true"></span>
+          <span class="foil-in"><b>自然なつながり</b>地域の人・企業・協力者が、自然につながる仕組みを育てること。</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 関わる人 -->
+  <section class="sec">
+    <div class="wrap">
+      <h2 class="d-l">関わる人みんなが、<br>循環の一部。</h2>
+      <p class="lead" style="margin-top:12px">支える人と、支えられる人を分けません。名前をタップしてみてください。</p>
+      <div class="people" id="people">
+        <button data-d="畑や加工の体験が、学びと役割になる。">子どもたち</button>
+        <button data-d="売上や利益の還元先。干し芋などの品も届けています。">児童養護施設</button>
+        <button data-d="農業とものづくりの現場で、ともに働く。">障害のある方</button>
+        <button data-d="畑に来る、買う、知る。暮らしの延長で関われる。">地域の人</button>
+        <button data-d="協賛や協力で、循環を大きく育てる。">企業・協力者</button>
+      </div>
+      <p class="people-say" id="peopleSay" aria-live="polite">　</p>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap two-col">
+      <div>
+        <h2 class="d-l">応援が届くところ</h2>
+        <p style="margin-top:18px">2025年3月、希望館に干し芋を納品しました。支援先の一覧と、還元の実績はここに載せていきます。</p>
+        <p style="margin-top:24px"><a class="btn" href="hatake.html#n1">活動レポートを読む</a></p>
+      </div>
+      <div class="blob pop-in" style="aspect-ratio:3/2"><img src="https://1-project.jp/wp-content/uploads/2026/08/S__111403026-456x296.jpg" alt="干し芋を手渡す様子" data-ph="納品の写真"></div>
+    </div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+<script src="js/about.js"></script>
+</body>
+</html>

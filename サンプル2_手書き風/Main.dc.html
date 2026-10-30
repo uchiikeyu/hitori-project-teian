@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一人プロジェクト トップ</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#F3ECDF}
+a{color:#3B2F25}a:hover{color:#9C4A2E}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes sway{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}100%{box-shadow:0 0 0 22px rgba(255,255,255,0)}}
+@keyframes pulseA{0%{box-shadow:0 0 0 0 rgba(156,74,46,.45)}100%{box-shadow:0 0 0 16px rgba(156,74,46,0)}}
+@keyframes kenburns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.1) translate(-2%,-2%)}}
+@keyframes progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pop{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+@keyframes scrollcue{0%{transform:translateY(0);opacity:1}100%{transform:translateY(14px);opacity:0}}
+.in{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.2s}.d2{animation-delay:.4s}.d3{animation-delay:.6s}.d4{animation-delay:.8s}.d5{animation-delay:1s}
+.reveal{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both}
+@supports (animation-timeline: view()){.reveal{animation:fadeUp linear both;animation-timeline:view();animation-range:entry 0% cover 28%}}
+.sway{transform-origin:50% 100%;animation:sway 3.2s ease-in-out infinite}
+.marquee{animation:marquee 30s linear infinite}
+.spin{animation:spin 24s linear infinite}
+.pulse{animation:pulse 1.8s ease-out infinite}
+.pulseA{animation:pulseA 1.6s ease-out infinite}
+.kb{animation:kenburns 18s ease-in-out infinite alternate}
+.kb.paused{animation-play-state:paused}
+.prog{transform-origin:0 50%;animation:progress 20s linear infinite}
+.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1) both}
+.cue{animation:scrollcue 1.6s ease-in infinite}
+.lift{transition:transform .3s ease,box-shadow .3s ease}
+.lift:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(59,47,37,.16)}
+.ul{background-image:linear-gradient(currentColor,currentColor);background-size:0 2px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .3s}
+.ul:hover{background-size:100% 2px}
+.thumb{transition:transform .3s ease,box-shadow .3s ease;cursor:pointer}
+.thumb:hover{transform:translateY(-4px)}
+@keyframes sproutUp{0%{transform:scale(0);opacity:0}25%{transform:scale(1.2);opacity:1}45%{transform:scale(1)}75%{opacity:1}100%{transform:translateY(-16px) scale(.9);opacity:0}}
+@keyframes ripple{from{transform:scale(.3);opacity:.9}to{transform:scale(1.9);opacity:0}}
+@keyframes fly1{from{transform:translate(0,0);opacity:1}to{transform:translate(-30px,-26px);opacity:0}}
+@keyframes fly2{from{transform:translate(0,0);opacity:1}to{transform:translate(30px,-30px);opacity:0}}
+@keyframes fly3{from{transform:translate(0,0);opacity:1}to{transform:translate(4px,-46px);opacity:0}}
+.sp{transform-origin:50% 100%;animation:sproutUp 1.3s cubic-bezier(.2,.8,.2,1) both}
+.rp{animation:ripple .7s ease-out both}
+.f1{animation:fly1 .8s ease-out both}.f2{animation:fly2 .8s ease-out both}.f3{animation:fly3 .8s ease-out both}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}.fx{display:none}}
+@media (max-width:720px){.hero-title{font-size:42px !important;line-height:1.35 !important}.sec-title{font-size:30px !important}.pad{padding-left:20px !important;padding-right:20px !important}}
+</style>
+</helmet>
+<div ref="{{rootRef}}" onPointerDown="{{onTap}}" style="position: relative; font-family: 'Zen Kaku Gothic New', sans-serif; color: #3B2F25; background: #F3ECDF; width: 100%; box-sizing: border-box; overflow: hidden">
+<div class="fx" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; z-index: 50">
+  <sc-for list="{{sprouts}}" as="s" hint-placeholder-count="0">
+    <div style="position: absolute; left: {{s.x}}px; top: {{s.y}}px; width: 0; height: 0">
+      <span class="rp" style="position: absolute; left: -26px; top: -26px; width: 52px; height: 52px; border-radius: 50%; border: 2px solid {{s.color}}; box-sizing: border-box"></span>
+      <span class="f1" style="position: absolute; left: -4px; top: -4px; width: 8px; height: 8px; border-radius: 50%; background: #C9B48D"></span>
+      <span class="f2" style="position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: #E0A988"></span>
+      <span class="f3" style="position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: #9DBB86"></span>
+      <div style="position: absolute; left: -24px; top: -56px; width: 48px; height: 56px; transform: rotate({{s.rot}}deg); transform-origin: 50% 100%">
+        <svg class="sp" width="48" height="56" viewBox="0 0 40 48"><path d="M20 46V24" fill="none" stroke="#4E7A3A" stroke-width="2.6" stroke-linecap="round"></path><path d="M20 28c0-8-6-13-14-13 0 8 6 13 14 13z" fill="{{s.color}}" stroke="#4E7A3A" stroke-width="1.6" stroke-linejoin="round"></path><path d="M20 24c0-7 5-12 13-12 0 7-5 12-13 12z" fill="{{s.color}}" stroke="#4E7A3A" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+  </sc-for>
+</div>
+
+<header class="pad" style="max-width: 1280px; margin: 0 auto; padding: 24px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+  <a href="Main.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+    <svg class="sway" width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#4E7A3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 34V18"></path><path d="M20 22c0-6-5-10-11-10 0 6 5 10 11 10z"></path><path d="M20 18c0-5 4-9 10-9 0 5-4 9-10 9z"></path></svg>
+    <span style="font-family: 'Klee One', serif; font-weight: 600; font-size: 24px; letter-spacing: 0.08em">一人プロジェクト</span>
+  </a>
+  <nav aria-label="メインメニュー" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 15px; font-weight: 500">
+    <a class="ul" href="About.dc.html" style="text-decoration: none; padding: 6px 0">想いとしくみ</a>
+    <a class="ul" href="Hatake.dc.html" style="text-decoration: none; padding: 6px 0">畑と日記</a>
+    <a class="ul" href="#movies" style="text-decoration: none; padding: 6px 0">動画</a>
+    <a class="lift" href="Join.dc.html" style="text-decoration: none; background: {{accent}}; color: #FFFFFF; padding: 12px 22px; border-radius: 999px">関わってみる</a>
+  </nav>
+</header>
+
+<!-- ヒーロー：背景動画 -->
+<section style="position: relative; margin: 0 16px; border-radius: 32px; overflow: hidden; min-height: 760px; display: flex; align-items: flex-end; background: #3A2E24; color: #FFFFFF">
+  <div class="kb {{bgClass}}" aria-hidden="true" style="position: absolute; inset: -4%; background: #5A4A38; display: flex; align-items: flex-start; justify-content: center; padding-top: 18%; box-sizing: border-box">
+    <span style="font-size: 15px; color: #F3ECDF; border: 1px dashed #D9C6A5; padding: 10px 18px; border-radius: 999px">［背景動画］畑の風景・土に触れる手元（音なし・15秒ループ）</span>
+  </div>
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(30,22,15,0.42)"></div>
+  <div class="pad" style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 48px 72px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 40px">
+    <div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+      <p class="in d1" style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.2em">群馬の畑から、子どもたちへ。</p>
+      <h1 class="hero-title" style="margin: 0; font-family: 'Klee One', serif; font-weight: 600; font-size: 76px; line-height: 1.25; letter-spacing: 0.02em"><span class="in d2" style="display: inline-block">一人の想いが、</span><br><span class="in d3" style="display: inline-block">未来の種になる。</span></h1>
+      <p class="in d4" style="margin: 0; font-size: 18px; line-height: 2; max-width: 540px">畑で育て、手でつくり、誰かに届ける。その売上が、児童養護施設の子どもたちや地域の居場所へ還っていきます。</p>
+      <div class="in d5" style="display: flex; flex-wrap: wrap; gap: 14px">
+        <a class="lift" href="#movies" style="text-decoration: none; background: #FFFFFF; color: #3B2F25; padding: 16px 28px; border-radius: 999px; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M5 3l10 6-10 6z" fill="#3B2F25"></path></svg>紹介動画を見る</a>
+        <a class="lift" href="About.dc.html" style="text-decoration: none; border: 2px solid #FFFFFF; color: #FFFFFF; padding: 14px 26px; border-radius: 999px; font-weight: 700; font-size: 16px">しくみを見る</a>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 20px">
+      <svg class="spin" width="132" height="132" viewBox="0 0 132 132" aria-hidden="true">
+        <defs><path id="ring" d="M66 66m-50 0a50 50 0 1 1 100 0a50 50 0 1 1 -100 0"></path></defs>
+        <circle cx="66" cy="66" r="64" fill="{{accent}}"></circle>
+        <text font-size="12" letter-spacing="3" fill="#FFFFFF" font-family="Zen Kaku Gothic New, sans-serif" font-weight="700"><textPath href="#ring">そだてる・つくる・とどける・かえす・</textPath></text>
+        <path d="M66 82V62M66 66c0-6-5-9-10-9 0 6 5 9 10 9zM66 62c0-5 4-8 9-8 0 5-4 8-9 8z" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"></path>
+      </svg>
+      <button type="button" onClick="{{toggleBg}}" aria-label="{{bgLabel}}" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #FFFFFF; background: rgba(0,0,0,0.25); color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0">
+        <sc-if value="{{bgPaused}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="#FFFFFF"></path></svg></sc-if>
+        <sc-if value="{{bgPlaying}}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="#FFFFFF"></rect><rect x="9.5" y="2" width="3.5" height="12" fill="#FFFFFF"></rect></svg></sc-if>
+      </button>
+    </div>
+  </div>
+  <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 20px; width: 2px; height: 28px; margin-left: -1px; overflow: hidden"><span class="cue" style="display: block; width: 2px; height: 14px; background: #FFFFFF"></span></div>
+</section>
+
+<div style="background: #3B2F25; color: #FBF7EF; padding: 22px 0; overflow: hidden; margin-top: 40px" aria-hidden="true">
+  <div class="marquee" style="display: flex; width: max-content; gap: 48px; font-family: 'Klee One', serif; font-size: 28px; white-space: nowrap">
+    <span>種をまこう。</span><span style="color: #E0A988">●</span><span>育てる</span><span style="color: #9DBB86">●</span><span>つくる</span><span style="color: #E0A988">●</span><span>届ける</span><span style="color: #9DBB86">●</span><span>還元する</span><span style="color: #E0A988">●</span><span>夢の種をまこう。</span><span style="color: #9DBB86">●</span>
+    <span>種をまこう。</span><span style="color: #E0A988">●</span><span>育てる</span><span style="color: #9DBB86">●</span><span>つくる</span><span style="color: #E0A988">●</span><span>届ける</span><span style="color: #9DBB86">●</span><span>還元する</span><span style="color: #E0A988">●</span><span>夢の種をまこう。</span><span style="color: #9DBB86">●</span>
+  </div>
+</div>
+
+<section style="background: #FBF7EF">
+  <div class="pad reveal" style="max-width: 880px; margin: 0 auto; padding: 120px 48px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
+    <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.24em; color: {{accent}}">私たちの想い</p>
+    <h2 class="sec-title" style="margin: 0; font-family: 'Klee One', serif; font-weight: 600; font-size: 44px; line-height: 1.5">支える人と、支えられる人を<br>分けない。</h2>
+    <p style="margin: 0; font-size: 18px; line-height: 2.1">関わる人みんなで、循環を育てる。<br>畑からはじまる道のりそのものが、役割と出会いの場になります。</p>
+    <a class="ul" href="About.dc.html" style="text-decoration: none; font-weight: 700; padding: 8px 0">想いとしくみを読む →</a>
+  </div>
+</section>
+
+<!-- MOVIES -->
+<section id="movies" style="background: #2E241C; color: #FBF7EF">
+  <div class="pad" style="max-width: 1280px; margin: 0 auto; padding: 112px 48px; display: flex; flex-direction: column; gap: 40px">
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 14px">
+      <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.24em; color: #E0A988">MOVIES</p>
+      <h2 class="sec-title" style="margin: 0; font-family: 'Klee One', serif; font-weight: 600; font-size: 44px">映像で見る、一人プロジェクト。</h2>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+      <div class="reveal" style="flex: 2 1 580px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+        <sc-for list="{{current}}" as="v" hint-placeholder-count="1">
+          <div class="pop" style="position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: {{v.tone}}">
+            <span style="position: absolute; left: 20px; top: 20px; font-size: 14px; color: #3B2F25; background: rgba(251,247,239,0.85); padding: 6px 14px; border-radius: 999px">［動画］{{v.title}}</span>
+            <sc-if value="{{notPlaying}}" hint-placeholder-val="{{ true }}">
+              <button type="button" onClick="{{play}}" aria-label="動画を再生" class="pulse" style="position: absolute; left: 50%; top: 50%; width: 96px; height: 96px; margin: -48px 0 0 -48px; border-radius: 50%; border: 0; background: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 7l16 9-16 9z" fill="#3B2F25"></path></svg></button>
+            </sc-if>
+            <sc-if value="{{playing}}" hint-placeholder-val="{{ false }}">
+              <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px; background: rgba(30,22,15,0.55); display: flex; align-items: center; gap: 16px">
+                <button type="button" onClick="{{pause}}" aria-label="一時停止" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid #FFFFFF; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; flex: none"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="#FFFFFF"></rect><rect x="9.5" y="2" width="3.5" height="12" fill="#FFFFFF"></rect></svg></button>
+                <div style="flex: 1; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; overflow: hidden"><div class="prog" style="height: 4px; background: #FFFFFF"></div></div>
+                <span style="font-size: 13px; color: #FFFFFF; flex: none">再生中（仮）</span>
+              </div>
+            </sc-if>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline">
+            <h3 style="margin: 0; font-size: 22px; font-weight: 700">{{v.title}}</h3>
+            <span style="font-size: 14px; color: #D9C6A5">{{v.len}}</span>
+          </div>
+          <p style="margin: 0; font-size: 16px; line-height: 1.9; color: #E3D3B6">{{v.desc}}</p>
+        </sc-for>
+      </div>
+      <div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D9C6A5">ほかの動画</p>
+        <sc-for list="{{videos}}" as="t" hint-placeholder-count="3">
+          <button type="button" class="thumb reveal" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="display: flex; gap: 14px; align-items: center; text-align: left; width: 100%; padding: 10px; border-radius: 16px; border: 2px solid {{t.border}}; background: transparent; color: #FBF7EF; font-family: inherit">
+            <span style="position: relative; width: 132px; flex: none; aspect-ratio: 16 / 9; border-radius: 10px; background: {{t.tone}}; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#FFFFFF"></circle><path d="M13 10l10 6-10 6z" fill="#3B2F25"></path></svg></span>
+            <span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 15px; font-weight: 700; line-height: 1.5">{{t.title}}</span><span style="font-size: 13px; color: #D9C6A5">{{t.len}}</span></span>
+          </button>
+        </sc-for>
+        <a class="ul" href="https://www.instagram.com/hitori_project2026/" style="align-self: flex-start; color: #FBF7EF; text-decoration: none; font-weight: 700; padding: 8px 0">Instagramのリール動画も見る →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" style="max-width: 1280px; margin: 0 auto; padding: 120px 48px; display: flex; flex-direction: column; gap: 48px">
+  <div class="reveal" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+    <h2 class="sec-title" style="margin: 0; font-family: 'Klee One', serif; font-weight: 600; font-size: 44px">ひとつの芋が、ひとつの応援になるまで。</h2>
+    <a class="ul" href="About.dc.html" style="text-decoration: none; font-weight: 700; padding: 8px 0">くわしく見る →</a>
+  </div>
+  <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px">
+    <li class="reveal lift" style="background: #FBF7EF; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 14px"><span style="font-family: 'Klee One', serif; font-size: 40px; color: #6B4F35">01</span><h3 style="margin: 0; font-size: 24px">育てる</h3><p style="margin: 0; font-size: 16px; line-height: 1.9">群馬の畑で、みんなで作物を育てる。</p></li>
+    <li class="reveal lift" style="background: #FBF7EF; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 14px"><span style="font-family: 'Klee One', serif; font-size: 40px; color: #6B4F35">02</span><h3 style="margin: 0; font-size: 24px">つくる</h3><p style="margin: 0; font-size: 16px; line-height: 1.9">干し芋などに加工し、商品にする。</p></li>
+    <li class="reveal lift" style="background: #FBF7EF; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 14px"><span style="font-family: 'Klee One', serif; font-size: 40px; color: #6B4F35">03</span><h3 style="margin: 0; font-size: 24px">届ける</h3><p style="margin: 0; font-size: 16px; line-height: 1.9">イベントやショップで手に取ってもらう。</p></li>
+    <li class="reveal lift" style="background: {{accent}}; color: #FFFFFF; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 14px"><span style="font-family: 'Klee One', serif; font-size: 40px">04</span><h3 style="margin: 0; font-size: 24px">還元する</h3><p style="margin: 0; font-size: 16px; line-height: 1.9">売上を児童養護施設や地域の活動へ。</p></li>
+  </ol>
+</section>
+
+<section style="background: #E9DCC4">
+  <div class="pad reveal" style="max-width: 1280px; margin: 0 auto; padding: 96px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 16px; flex: 1 1 420px">
+      <p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 700"><span class="pulseA" style="width: 12px; height: 12px; border-radius: 50%; background: {{accent}}"></span>いまの畑</p>
+      <h2 class="sec-title" style="margin: 0; font-family: 'Klee One', serif; font-weight: 600; font-size: 44px">10月、さつまいもの収穫期。</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 2">［今月の畑のようすを1〜2行で］</p>
+    </div>
+    <a class="lift" href="Hatake.dc.html" style="text-decoration: none; background: #3B2F25; color: #FBF7EF; padding: 18px 32px; border-radius: 999px; font-weight: 700">畑と日記を見る</a>
+  </div>
+</section>
+
+<section class="pad" style="max-width: 1280px; margin: 0 auto; padding: 120px 48px; display: flex; flex-direction: column; gap: 48px">
+  <h2 class="sec-title reveal" style="margin: 0; text-align: center; font-family: 'Klee One', serif; font-weight: 600; font-size: 44px">知ることも、もう立派な応援です。</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+    <a class="reveal lift" href="https://www.instagram.com/hitori_project2026/" style="text-decoration: none; background: #3B2F25; color: #FBF7EF; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em">まずはここから</span><span style="font-size: 24px; font-weight: 700">フォローして知る</span></a>
+    <a class="reveal lift" href="https://denalist.base.shop/" style="text-decoration: none; background: #FBF7EF; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: #6B4F35">買って応援</span><span style="font-size: 24px; font-weight: 700">干し芋を買う</span></a>
+    <a class="reveal lift" href="Join.dc.html" style="text-decoration: none; background: #FBF7EF; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: #6B4F35">一緒に手を動かす</span><span style="font-size: 24px; font-weight: 700">畑に参加する</span></a>
+    <a class="reveal lift" href="Join.dc.html" style="text-decoration: none; background: #FBF7EF; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: #6B4F35">企業・団体の方</span><span style="font-size: 24px; font-weight: 700">協賛・連携する</span></a>
+  </div>
+</section>
+
+<footer style="background: #3B2F25; color: #FBF7EF">
+  <div class="pad" style="max-width: 1280px; margin: 0 auto; padding: 64px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 12px"><span style="font-family: 'Klee One', serif; font-weight: 600; font-size: 26px; letter-spacing: 0.08em">一人プロジェクト</span><span style="font-size: 15px">農業・子ども・地域・未来を、静かにつなぐ。</span></div>
+    <nav aria-label="フッターメニュー" style="display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: 15px">
+      <a class="ul" href="Main.dc.html" style="color: #FBF7EF; text-decoration: none">トップ</a>
+      <a class="ul" href="About.dc.html" style="color: #FBF7EF; text-decoration: none">想いとしくみ</a>
+      <a class="ul" href="Hatake.dc.html" style="color: #FBF7EF; text-decoration: none">畑と日記</a>
+      <a class="ul" href="Join.dc.html" style="color: #FBF7EF; text-decoration: none">関わってみる</a>
+      <a class="ul" href="https://www.instagram.com/hitori_project2026/" style="color: #FBF7EF; text-decoration: none">Instagram</a>
+    </nav>
+  </div>
+  <p style="margin: 0; text-align: center; font-size: 12px; padding: 0 0 32px; color: #D9C6A5">Copyright © 一人プロジェクト. All Rights Reserved.</p>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9C4A2E","options":["#9C4A2E","#3E6330","#7A3E5C","#3B2F25"]},"$preview":{"width":1440,"height":5200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { vid: 0, playing: false, bgPaused: false };
+  }
+  fx() {
+    if (!this._rr) {
+      this._rr = (el) => { this.root = el; };
+      this._tp = (e) => this.tap(e);
+    }
+    return { rootRef: this._rr, onTap: this._tp, sprouts: (this.state && this.state.sprouts) || [] };
+  }
+  tap(e) {
+    if (!this.root || !e) return;
+    const r = this.root.getBoundingClientRect();
+    const colors = ['#9DBB86', '#C9DDB8', '#E0A988', '#B8D19F'];
+    const id = Date.now() + '-' + Math.random().toString(36).slice(2, 7);
+    const p = { id: id, x: Math.round(e.clientX - r.left), y: Math.round(e.clientY - r.top), color: colors[Math.floor(Math.random() * colors.length)], rot: Math.round(Math.random() * 30 - 15) };
+    this.setState((s) => ({ sprouts: ((s && s.sprouts) || []).slice(-10).concat([p]) }));
+    setTimeout(() => this.setState((s) => ({ sprouts: ((s && s.sprouts) || []).filter((q) => q.id !== id) })), 1400);
+  }
+  renderVals() { return Object.assign(this.baseVals(), this.fx()); }
+  baseVals() {
+    const list = [
+      { title: '一人プロジェクトとは（紹介動画）', len: '［再生時間］', desc: '［動画の説明を1〜2行で。例：畑・加工・納品までの一年を、メンバーの声とともに紹介します。］', tone: '#C9B48D' },
+      { title: '［例］さつまいも収穫の日', len: '［再生時間］', desc: '［動画の説明］', tone: '#9DBB86' },
+      { title: '［例］干し芋ができるまで', len: '［再生時間］', desc: '［動画の説明］', tone: '#E0A988' }
+    ];
+    const videos = list.map((v, i) => ({
+      title: v.title, len: v.len, tone: v.tone,
+      pressed: String(this.state.vid === i),
+      border: this.state.vid === i ? '#E0A988' : 'transparent',
+      pick: () => this.setState({ vid: i, playing: false })
+    }));
+    return {
+      accent: this.props.accent ?? '#9C4A2E',
+      current: [list[this.state.vid]],
+      videos,
+      playing: this.state.playing,
+      notPlaying: !this.state.playing,
+      play: () => this.setState({ playing: true }),
+      pause: () => this.setState({ playing: false }),
+      bgPaused: this.state.bgPaused,
+      bgPlaying: !this.state.bgPaused,
+      bgClass: this.state.bgPaused ? 'paused' : '',
+      bgLabel: this.state.bgPaused ? '背景動画を再生' : '背景動画を一時停止',
+      toggleBg: () => this.setState({ bgPaused: !this.state.bgPaused })
+    };
+  }
+}
+</script>
+</body>
+</html>

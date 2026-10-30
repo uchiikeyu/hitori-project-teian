@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一人プロジェクト｜種をまこう。夢の種をまこう。</title>
+<meta name="description" content="農業・製造・販売を通じて、子どもたち・児童養護施設・障害のある方・地域の人たちをつなぐ、群馬の社会貢献プロジェクトです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="top">
+<main>
+
+  <!-- 最初の画面：割れる焼き芋 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <h1 class="d-xl"><span class="hl">種をまこう。</span><br><span class="hl">夢の種を</span><br><span class="hl">まこう。</span></h1>
+        <p class="lead">農業・子ども・地域・未来を、静かにつなぐ。<br>群馬の畑から始まる、社会貢献プロジェクトです。</p>
+        <div class="hero-btns">
+          <a class="btn" href="about.html">しくみを見る</a>
+          <a class="btn w" href="hatake.html">畑と日記</a>
+        </div>
+      </div>
+      <div class="hero-imo-wrap">
+        <button class="hero-imo no-imo" id="heroImo" aria-pressed="false" aria-label="芋をタップして割る">
+          <span class="hi-inside" aria-hidden="true">
+            <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
+            <span class="hi-word">ほくほく。</span>
+          </span>
+          <span class="hi-half l"><img src="https://1-project.jp/wp-content/uploads/2026/07/1248165937.jpg" alt="" data-ph="畑の写真"></span>
+          <span class="hi-half f"><img src="https://1-project.jp/wp-content/uploads/2026/07/1248165937.jpg" alt="畑で大根を手にする子ども" data-ph="畑の写真"></span>
+          <span class="hi-half r"><img src="https://1-project.jp/wp-content/uploads/2026/07/1248165937.jpg" alt="" data-ph="畑の写真"></span>
+        </button>
+        <span class="sticker hero-sticker" aria-hidden="true">群馬の<br>畑から</span>
+        <p class="hero-hint" id="heroHint">タップすると、パカッ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 一人プロジェクトとは -->
+  <section class="sec tint">
+    <div class="wrap intro">
+      <div class="intro-photo pop-in">
+        <div class="blob morph" style="aspect-ratio:4/3"><img src="https://1-project.jp/wp-content/uploads/2026/07/1729655994.jpg" alt="収穫した野菜を抱える人たち" data-ph="畑で収穫する人たちの写真"></div>
+      </div>
+      <div>
+        <h2 class="d-l">一人の想いから、<br>支援の循環を育てる。</h2>
+        <p style="margin-top:22px">農業・製造・販売を通じて、子どもたち、児童養護施設、障害のある方、地域の人たちがゆるやかにつながる居場所と機会をつくっています。</p>
+        <p>売上や利益は、児童養護施設への支援や地域での活動へ還元されます。</p>
+        <p style="margin-top:28px"><a class="btn" href="about.html">想いとしくみを読む</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- つるを引っぱって掘る -->
+  <section class="sec yellow dig-sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="d-l">芋づる式に、<br>つながっていく。</h2>
+          <p class="lead" style="color:var(--ink)">葉っぱをつかんで、上に引っぱってみてください。</p>
+        </div>
+        <p class="dig-count" aria-live="polite"><b id="digCount">0</b> / 5 本</p>
+      </div>
+      <div class="dig" id="dig">
+        <div class="dig-plant" id="digPlant">
+          <button class="dig-handle no-imo" id="digHandle" aria-label="つるを引っぱる（Enterキーでも引っぱれます）">
+            <svg viewBox="0 0 120 90" aria-hidden="true"><path d="M60 88C58 60 40 40 14 36c4 26 22 44 46 52z" fill="#2A8754"/><path d="M60 88c2-30 20-52 46-58-2 28-20 48-46 58z" fill="#3FA86C"/><path d="M60 88C56 54 62 24 76 4c8 30 0 60-16 84z" fill="#2A8754"/></svg>
+          </button>
+          <svg class="dig-roots" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M200 0V60M200 60C180 110 120 120 90 170M200 60C210 120 190 160 200 220M200 60C230 110 280 120 310 170M200 120C170 170 150 220 140 260M200 120C240 170 260 220 262 260" stroke="#7A5A3A" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <span class="tuber t1" style="left:22%;top:52%"></span>
+          <span class="tuber t2" style="left:46%;top:68%"></span>
+          <span class="tuber t3" style="left:72%;top:52%"></span>
+          <span class="tuber t4" style="left:30%;top:84%"></span>
+          <span class="tuber t5" style="left:60%;top:84%"></span>
+        </div>
+        <div class="dig-soil" aria-hidden="true"></div>
+        <div class="dig-done" id="digDone" hidden>
+          <p class="d-m">大収穫！</p>
+          <p>一本のつるに、いくつもの実り。<br>一人の参加が、次の誰かにつながっていきます。</p>
+          <div class="dig-btns"><a class="btn" href="join.html">関わり方を見る</a><button class="btn w" id="digReset">埋めなおす</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4つの段階 -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="d-l">畑から、子どもたちへ。</h2>
+        <a class="btn w" href="about.html">くわしく見る</a>
+      </div>
+    </div>
+    <ol class="steps" id="steps" aria-label="活動の流れ">
+      <li class="step" style="--c:var(--ha)"><span class="step-no">1</span><b>育てる</b><span>畑で作物を育て、地域の恵みを形にする</span></li>
+      <li class="step" style="--c:var(--mitsu-d)"><span class="step-no">2</span><b>つくる</b><span>加工や商品づくりで、価値ある品へ</span></li>
+      <li class="step" style="--c:var(--imo2)"><span class="step-no">3</span><b>届ける</b><span>販売や紹介で、想いを広く届ける</span></li>
+      <li class="step" style="--c:var(--imo)"><span class="step-no">4</span><b>還す</b><span>利益を支援先や地域へ還元する</span></li>
+    </ol>
+    <p class="wrap note steps-note">横にスワイプできます</p>
+  </section>
+
+  <!-- 畑だより -->
+  <section class="sec tint">
+    <div class="wrap news-feature">
+      <a class="news-photo pop-in" href="hatake.html#n1">
+        <div class="blob" style="aspect-ratio:3/2"><img src="https://1-project.jp/wp-content/uploads/2026/08/S__111403026-456x296.jpg" alt="干し芋を手渡す様子" data-ph="納品の写真"></div>
+      </a>
+      <div>
+        <p class="news-meta"><span class="tag">活動レポート</span> 2025.03.18</p>
+        <h2 class="d-l" style="margin-top:10px">希望館に干し芋を<br>納品しました！</h2>
+        <p style="margin-top:24px"><a class="btn" href="hatake.html">畑と日記を見る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- グッズ -->
+  <section class="sec purple">
+    <div class="wrap goods-teaser">
+      <div>
+        <h2 class="d-l">買うことも、応援になる。</h2>
+        <p class="lead" style="margin-top:16px">芋一人ロゴ入りキャップ ¥3,960。色を選んでみてください。</p>
+        <div class="mini-sw" role="group" aria-label="キャップの色">
+          <button style="--c:#8B8478" aria-label="トープグレー"></button>
+          <button style="--c:#8A8D8F" aria-label="スモークグレー"></button>
+          <button style="--c:#45474A" aria-label="チャコールグレー"></button>
+          <button style="--c:#7B5B3E" aria-label="コヨーテブラウン"></button>
+          <button style="--c:#6B6B2E" aria-label="オリーブ" class="on"></button>
+        </div>
+        <p style="margin-top:28px"><a class="btn y" href="goods.html">グッズを見る</a></p>
+      </div>
+      <div class="cap-blob" id="capBlob" style="--cap:#6B6B2E">
+        <svg viewBox="0 0 240 170" aria-hidden="true"><use href="#cap"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec yellow join-cta">
+    <div class="wrap" style="text-align:center">
+      <h2 class="d-xl" style="font-size:clamp(36px,6vw,72px)">あなたも、<br>一粒の種に。</h2>
+      <p class="lead" style="color:var(--ink);margin:18px auto 30px;max-width:30em">知る、買う、手伝う、協賛する。できる形で関わることが、未来への応援になります。</p>
+      <a class="btn" href="join.html">関わり方をえらぶ</a>
+    </div>
+  </section>
+</main>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="cap" viewBox="0 0 240 170">
+    <ellipse cx="120" cy="152" rx="96" ry="9" fill="rgba(0,0,0,.18)"/>
+    <path d="M40 112C40 58 76 26 120 26s80 32 80 86z" fill="var(--cap)"/>
+    <path d="M120 26c-14 22-18 52-16 86M120 26c14 22 18 52 16 86" stroke="rgba(0,0,0,.2)" stroke-width="2" fill="none"/>
+    <path d="M62 58c18-10 38-14 58-14" stroke="rgba(255,255,255,.2)" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <circle cx="120" cy="26" r="6" fill="var(--cap)" stroke="rgba(0,0,0,.2)" stroke-width="2"/>
+    <path d="M30 112h180c10 0 18 8 14 14-26 10-74 14-104 14s-78-4-104-14c-4-6 4-14 14-14z" fill="var(--cap)"/>
+    <path d="M30 112h180c10 0 18 8 14 14-26 10-74 14-104 14s-78-4-104-14c-4-6 4-14 14-14z" fill="rgba(0,0,0,.2)"/>
+    <text x="120" y="88" text-anchor="middle" font-family="Mochiy Pop One, sans-serif" font-size="13" fill="#fff" opacity=".9">芋一人</text>
+  </symbol>
+</svg>
+
+<script src="js/main.js"></script>
+<script src="js/top.js"></script>
+</body>
+</html>

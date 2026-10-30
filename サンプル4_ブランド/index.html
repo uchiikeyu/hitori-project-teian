@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一人プロジェクト｜一人の想いから、循環を育てる。</title>
+<meta name="description" content="子どもたち、児童養護施設、障害のある方、地域の人。関わる人みんなで支援の循環を育てる、群馬の社会貢献プロジェクトです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Noto+Sans+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="top">
+<main>
+
+  <!-- 最初の画面：はじける一本の線 -->
+  <section class="hero">
+    <div class="wrap hero-top">
+      <h1 class="h-hero rv"><span class="ln"><span>一人の想いから、</span></span><span class="ln"><span>循環を育てる。</span></span></h1>
+      <p class="hero-lead fade">子どもたち、児童養護施設、障害のある方、地域の人。<br>関わる人みんなで、支援の循環を育てるプロジェクトです。</p>
+    </div>
+    <div class="string-box no-tap" data-cursor="pluck">
+      <canvas id="string" aria-hidden="true"></canvas>
+    </div>
+    <div class="wrap hero-foot">
+      <p class="small" id="stringHint" aria-live="polite">線にふれて、はじいてみてください</p>
+      <button class="sound-btn small" id="soundBtn" aria-pressed="false">音：なし</button>
+      <p class="scroll-cue small" aria-hidden="true"><span></span>Scroll</p>
+    </div>
+  </section>
+
+  <!-- 墨がにじむ文章 -->
+  <section class="sec statement">
+    <div class="wrap">
+      <p class="ink-text">誰かを一方的に支えるのではなく、関わる人みんなで循環を育てる。つくり、届け、還す。その道のりそのものが、誰かの役割と出会いの場になる。一人ひとりの小さな参加が、次の誰かの安心や希望につながっていく。</p>
+      <p class="statement-link fade"><a class="btn mag" href="about.html" data-cursor="read"><span class="dot"></span>私たちについて</a></p>
+    </div>
+  </section>
+
+  <!-- プロジェクト：横に引っぱる -->
+  <section class="sec dark projects-sec" id="projects">
+    <div class="wrap pj-head">
+      <h2 class="h-sec rv"><span class="ln"><span>ひとつの想いから、</span></span><span class="ln"><span>いくつものプロジェクトへ。</span></span></h2>
+      <p class="pj-count"><span class="num" id="pjNow">01</span><span class="pj-bar"><i id="pjBar"></i></span><span class="num">04</span></p>
+    </div>
+    <div class="rail no-tap" id="rail" data-cursor="drag">
+      <div class="rail-track" id="railTrack"></div>
+    </div>
+    <div class="wrap rail-foot">
+      <p class="small">横に引っぱって、カードを開いてください</p>
+      <a class="btn" href="projects.html"><span class="dot"></span>プロジェクト一覧</a>
+    </div>
+  </section>
+
+  <!-- めぐる：スクロールで輪が回る -->
+  <section class="cycle" id="cycle">
+    <div class="cycle-pin">
+      <div class="wrap cycle-grid">
+        <div class="cycle-ring" aria-hidden="true">
+          <svg viewBox="0 0 400 400"><circle cx="200" cy="200" r="170" fill="none" stroke="rgba(22,24,29,.14)"/><circle id="ringArc" cx="200" cy="200" r="170" fill="none" stroke="#A88B5C" stroke-width="1.5" stroke-dasharray="1068" stroke-dashoffset="1068" transform="rotate(-90 200 200)"/></svg>
+          <div class="ring-rot" id="ringRot">
+            <span class="node" style="--a:0deg">つくる</span>
+            <span class="node" style="--a:90deg">届ける</span>
+            <span class="node" style="--a:180deg">還す</span>
+            <span class="node" style="--a:270deg">つながる</span>
+          </div>
+          <span class="ring-center num" id="ringNo">01</span>
+        </div>
+        <div class="cycle-text" aria-live="polite">
+          <h2 class="h-sec">めぐる、しくみ。</h2>
+          <div class="cycle-steps">
+            <button class="cstep on" data-i="0"><span class="num">01</span><b>つくる</b><span class="cs-body">畑で育てる、ものをつくる。プロジェクトごとに、関わる人の役割が生まれます。</span></button>
+            <button class="cstep" data-i="1"><span class="num">02</span><b>届ける</b><span class="cs-body">販売や紹介で、想いごと手に取ってもらう。</span></button>
+            <button class="cstep" data-i="2"><span class="num">03</span><b>還す</b><span class="cs-body">売上や利益を、児童養護施設への支援や地域の活動へ。</span></button>
+            <button class="cstep" data-i="3"><span class="num">04</span><b>つながる</b><span class="cs-body">地域の人・企業・協力者が、自然につながる。そしてまた、次の種へ。</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 応援の4段階：点が階段をのぼる -->
+  <section class="sec stairs-sec">
+    <div class="wrap">
+      <div class="stairs-head">
+        <h2 class="h-sec rv"><span class="ln"><span>応援は、フォローから。</span></span></h2>
+        <p class="lead fade">はじめの一歩は、知ること。そこから少しずつ、関わり方が深まっていきます。段をえらんでください。</p>
+      </div>
+      <div class="stairs no-tap" id="stairs">
+        <span class="stair-dot" id="stairDot" aria-hidden="true"></span>
+        <button class="stair on" data-i="0" aria-pressed="true"><span class="num">01</span><b>フォローする</b></button>
+        <button class="stair" data-i="1" aria-pressed="false"><span class="num">02</span><b>商品を買う</b></button>
+        <button class="stair" data-i="2" aria-pressed="false"><span class="num">03</span><b>ボランティアに参加する</b></button>
+        <button class="stair" data-i="3" aria-pressed="false"><span class="num">04</span><b>協賛・連携する</b></button>
+      </div>
+      <div class="stair-detail" id="stairDetail" aria-live="polite">
+        <p class="sd-lead" id="sdLead">応援のはじまり。</p>
+        <p class="sd-body" id="sdBody">Instagramで、日々の活動を見守ってください。フォローやシェアが、プロジェクトを次の人へ届けます。</p>
+        <a class="btn" id="sdBtn" href="https://www.instagram.com/hitori_project2026/" target="_blank" rel="noopener"><span class="dot"></span><span id="sdBtnT">Instagramをフォローする</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- お知らせ -->
+  <section class="sec news-sec" id="news">
+    <div class="wrap">
+      <div class="news-top">
+        <h2 class="h-sec rv"><span class="ln"><span>お知らせ</span></span></h2>
+        <a class="btn" href="https://www.instagram.com/hitori_project2026/" target="_blank" rel="noopener"><span class="dot"></span>Instagram</a>
+      </div>
+      <div class="rule"></div>
+      <ul class="news-list" id="newsList">
+        <li><a class="news-row" href="projects.html#p1" data-img="https://1-project.jp/wp-content/uploads/2026/08/S__111403026-456x296.jpg" data-cursor="read">
+          <span class="num">2025.03.18</span><span class="news-cat">芋</span><span class="news-t">希望館に干し芋を納品しました</span><span class="arr" aria-hidden="true"></span></a></li>
+        <li><div class="news-row soon"><span class="num">—</span><span class="news-cat">お知らせ</span><span class="news-t">次のお知らせを準備しています</span></div></li>
+      </ul>
+      <div class="news-peek" id="newsPeek" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- 関わる -->
+  <section class="sec dark join-cta">
+    <div class="wrap join-grid">
+      <h2 class="h-hero rv"><span class="ln"><span>あなたも、</span></span><span class="ln"><span>循環の一人に。</span></span></h2>
+      <a class="join-circle mag" href="join.html" data-cursor="join"><span>関わる</span><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="none" stroke="currentColor" stroke-width="1"/></svg></a>
+    </div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+<script src="js/top.js"></script>
+</body>
+</html>

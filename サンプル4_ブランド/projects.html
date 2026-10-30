@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>プロジェクト｜一人プロジェクト</title>
+<meta name="description" content="芋、hitoriの装い、イベント。一人プロジェクトから広がるプロジェクトの一覧。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Noto+Sans+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-page="projects">
+<main>
+  <section class="sub-hero">
+    <div class="wrap">
+      <p class="en sub-en fade">Projects</p>
+      <h1 class="h-hero rv"><span class="ln"><span>プロジェクト</span></span></h1>
+      <p class="lead fade" style="margin-top:28px">ひとつの想いから、いくつもの実りへ。芋から始まり、装い、場づくりへと広がっています。</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:40px">
+    <div class="wrap">
+      <div class="pj-filter" role="group" aria-label="しぼりこみ">
+        <button class="on" data-f="all" aria-pressed="true">すべて</button>
+        <button data-f="now" aria-pressed="false">進行中</button>
+        <button data-f="soon" aria-pressed="false">準備中</button>
+      </div>
+      <ul class="pj-list" id="pjList"></ul>
+    </div>
+    <div class="pj-peek" id="pjPeek" aria-hidden="true"></div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+<script src="js/projects.js"></script>
+</body>
+</html>
