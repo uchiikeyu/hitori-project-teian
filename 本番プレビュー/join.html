@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>関わる｜一人プロジェクト</title>
+<meta name="description" content="フォロー、商品の購入、ボランティア、協賛・連携。一人プロジェクトへの関わり方とお問い合わせ。">
+<link rel="canonical" href="https://1-project.jp/join.html">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="一人プロジェクト">
+<meta property="og:title" content="関わる｜一人プロジェクト">
+<meta property="og:description" content="フォロー、商品の購入、ボランティア、協賛・連携。一人プロジェクトへの関わり方とお問い合わせ。">
+<meta property="og:url" content="https://1-project.jp/join.html">
+<meta property="og:image" content="https://1-project.jp/img/ogp.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3F3F0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Noto+Sans+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/sub.css">
+</head>
+<body data-page="join">
+<main>
+  <section class="sub-hero">
+    <div class="wrap">
+      <p class="en sub-en fade">Join</p>
+      <h1 class="h-hero rv"><span class="ln"><span>あなたも、</span></span><span class="ln"><span>循環の一人に。</span></span></h1>
+      <p class="lead fade" style="margin-top:28px">応援は、フォローから始まります。商品を買う、ボランティアに参加する、協賛・連携する。いまのあなたに合う段をえらんでください。</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:40px">
+    <div class="wrap">
+      <ol class="path" id="path" aria-label="応援の4段階">
+        <li class="path-line" aria-hidden="true"><i id="pathFill"></i></li>
+      </ol>
+      <p class="ways-sum" id="waysSum" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="sec dark">
+    <div class="wrap two">
+      <h2 class="h-sec rv"><span class="ln"><span>よくあるご質問</span></span></h2>
+      <div class="faq">
+        <details><summary>ボランティアには、誰でも参加できますか？</summary><p>［参加できる人・申し込み方法を先方に確認して記入］</p></details>
+        <details><summary>どんなプロジェクトに関われますか？</summary><p>［いま参加できるプロジェクト］</p></details>
+        <details><summary>商品はどこで買えますか？</summary><p>干し芋やキャップは、<a href="https://denalist.base.shop/" target="_blank" rel="noopener">オンラインショップ</a>で買えます。［店頭での販売があれば、ここに書きます。］</p></details>
+        <details><summary>企業として協賛するには？</summary><p>［協賛の内容と、相談の窓口］</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="wrap two">
+      <div>
+        <h2 class="h-sec rv"><span class="ln"><span>お問い合わせ</span></span></h2>
+        <p class="lead fade" style="margin-top:20px">取材、協賛、ボランティア、商品について。</p>
+      </div>
+      <div>
+        <form class="form" id="form" novalidate>
+          <label class="field"><input name="name" autocomplete="name" placeholder=" " required><span>お名前（必須）</span></label>
+          <label class="field"><input name="email" type="email" autocomplete="email" placeholder=" " required><span>メールアドレス（必須）</span></label>
+          <label class="field"><input name="tel" type="tel" autocomplete="tel" placeholder=" "><span>電話番号</span></label>
+          <label class="field"><input name="org" autocomplete="organization" placeholder=" "><span>会社・団体名（協賛・連携、取材の方）</span></label>
+          <fieldset>
+            <legend class="small">ご用件（必須・いくつでも）</legend>
+            <div class="checks" id="checks">
+              <label><input type="checkbox" value="商品の購入">商品の購入</label>
+              <label><input type="checkbox" value="ボランティア">ボランティア</label>
+              <label><input type="checkbox" value="協賛・連携">協賛・連携</label>
+              <label><input type="checkbox" value="取材">取材</label>
+              <label><input type="checkbox" value="その他">その他</label>
+            </div>
+          </fieldset>
+          <label class="field"><textarea name="msg" rows="5" placeholder=" " required></textarea><span>お問い合わせ内容（必須）</span></label>
+          <label class="agree"><input type="checkbox" name="agree" required><span><a href="privacy.html" target="_blank">個人情報の取り扱い</a>に同意する（必須）</span></label>
+          <p class="form-err" id="formErr" role="alert"></p>
+          <p><button class="btn mag" type="submit" data-cursor="send"><span class="dot"></span>送信する</button></p>
+          <p class="small" id="formNote">3日以内に、メールでお返事します。</p>
+        </form>
+        <div class="sent" id="sent" hidden tabindex="-1">
+          <p class="h-sec">送信しました</p>
+          <p class="small" id="sentNote">お問い合わせありがとうございます。3日以内に、メールでお返事します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+<script src="js/join.js"></script>
+</body>
+</html>
