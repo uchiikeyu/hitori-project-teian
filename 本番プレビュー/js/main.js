@@ -2,14 +2,10 @@
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(pointer: fine)').matches;
-  const page = document.body.dataset.page;
-  const PAGES = [
-    ['index.html', 'トップ', 'top'],
-    ['about.html', '私たちについて', 'about'],
-    ['projects.html', 'プロジェクト', 'projects'],
-    ['join.html', '関わる', 'join'],
-    ['news.html', 'お知らせ', 'news'],
-  ];
+  // サイト情報（サイト情報.txt から仕上げで作る js/site.js）
+  const SITE = window.SITE || {};
+  const IG = SITE.instagram || 'https://www.instagram.com/hitori_project2026/';
+  const SHOP = SITE.shop || 'https://denalist.base.shop/';
 
   // ---------- プロジェクト（トップとプロジェクトページで共通） ----------
   const IMG = 'img/';
@@ -23,26 +19,26 @@
       img: IMG + 'project-apparel.jpg', ph: 'キャップの写真',
       body: '芋一人ロゴ入りキャップ。シンプルなデザインと、軽やかなメッシュ素材。トープグレー、スモークグレー、チャコールグレー、コヨーテブラウン、オリーブの5色です。',
       facts: [['商品', '芋一人ロゴ入りキャップ'], ['価格', '¥3,960'], ['色', '5色']],
-      link: ['https://denalist.base.shop/', 'オンラインショップへ'] },
+      link: [SHOP, 'オンラインショップへ'] },
     { no: '03', name: 'イベント', en: 'Events', sub: '人が集まる場をつくる。',
       img: IMG + 'project-event.jpg', ph: 'イベントの写真',
-      body: '［イベントの内容をここに入れます。開催したもの、これから予定しているもの。］',
-      facts: [['開催', '［回数・場所］'], ['次回', '［日程］']],
+      body: '人が集まり、つながる場をつくっています。開催の予定は、お知らせページとInstagramでお伝えします。',
+      facts: [['お知らせ', 'お知らせページ・Instagram']],
       link: ['join.html#contact', 'お問い合わせ'] },
     { no: '04', name: '次のプロジェクト', en: 'Next', sub: 'いま、種をまいています。',
       img: '', ph: '準備中',
       body: '芋から始まった一人プロジェクトは、これからいくつもの分野へ広がっていきます。次に芽を出すプロジェクトは、ここでお知らせします。',
       facts: [['公開', '準備中']],
-      link: ['https://www.instagram.com/hitori_project2026/', 'Instagramで知らせを受け取る'] },
+      link: [IG, 'Instagramで知らせを受け取る'] },
   ];
   // 応援の4段階（トップと関わるページで共通）
   window.STAGES = [
     { name: 'フォローする', v: 'フォロー', lead: '応援のはじまり。',
       body: 'Instagramで、日々の活動を見守ってください。フォローやシェアが、プロジェクトを次の人へ届けます。',
-      btn: ['https://www.instagram.com/hitori_project2026/', 'Instagramをフォローする'] },
+      btn: [IG, 'Instagramをフォローする'] },
     { name: '商品を買う', v: '商品の購入', lead: '手に取ることが、続ける力に。',
       body: '干し芋やキャップを買うことが、活動を続ける力になり、売上は支援先や地域へ還元されます。',
-      btn: ['https://denalist.base.shop/', 'オンラインショップへ'] },
+      btn: [SHOP, 'オンラインショップへ'] },
     { name: 'ボランティアに参加する', v: 'ボランティア', lead: '現場で、一緒に手を動かす。',
       body: 'つくる日、届ける日、場をひらく日。ボランティアとして、プロジェクトの現場に関わってください。',
       btn: ['join.html#contact', '参加を申し込む'] },
@@ -76,26 +72,7 @@
   const media = (p, cls = '') => `<div class="photo ${cls}">${p.img ? `<img src="${p.img}" alt="" data-ph="${p.ph}">` : `<div class="ph">${p.ph}</div>`}</div>`;
   window.projectMedia = media;
 
-  // ---------- ヘッダー・メニュー・フッター ----------
-  const nav = PAGES.map(([h, l, k]) => `<a href="${h}"${k === page ? ' aria-current="page"' : ''}>${l}</a>`).join('');
-  document.body.insertAdjacentHTML('afterbegin', `
-    <div class="curtain" aria-hidden="true"></div>
-    <header class="site-head"><div class="wrap">
-      <a class="mark" href="index.html" aria-label="一人プロジェクト トップ"><span class="mark-sym" aria-hidden="true"></span><span class="mark-word">HITORI PROJECT</span></a>
-      <nav class="nav" aria-label="サイト内">${nav}</nav>
-      <button class="menu-btn" aria-label="メニューを開く" aria-expanded="false"><i></i><i></i></button>
-    </div></header>
-    <nav class="sp-menu" aria-label="サイト内（スマホ）">${PAGES.map(([h, l], i) => `<a href="${h}"><span class="num">0${i + 1}</span>${l}</a>`).join('')}</nav>`);
-  document.body.insertAdjacentHTML('beforeend', `
-    <footer class="site-foot"><div class="wrap">
-      <p class="foot-big">一人の想いから、<br>循環を育てる。</p>
-      <div class="foot-row">
-        <ul>${PAGES.map(([h, l]) => `<li><a href="${h}">${l}</a></li>`).join('')}
-          <li><a href="https://www.instagram.com/hitori_project2026/" target="_blank" rel="noopener">Instagram</a></li></ul>
-        <span><a href="privacy.html">個人情報の取り扱い</a>　© 一人プロジェクト</span>
-      </div>
-    </div></footer>`);
-
+  // ---------- メニュー（ヘッダー・フッターは仕上げで各ページに書き込み済み） ----------
   const menuBtn = document.querySelector('.menu-btn');
   menuBtn.addEventListener('click', () => {
     const open = document.body.classList.toggle('menu-open');

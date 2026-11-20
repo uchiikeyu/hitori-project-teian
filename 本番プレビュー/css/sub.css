@@ -148,3 +148,15 @@
 .agree{display:flex;align-items:flex-start;gap:12px;font-size:14px;cursor:pointer;line-height:1.7}
 .agree input{flex:none;width:18px;height:18px;margin-top:4px;accent-color:var(--ink)}
 .agree a{text-decoration:underline;text-underline-offset:4px}
+
+/* ===== 項目と内容の表（運営者情報・商品） ===== */
+.facts{margin-top:36px;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:7em 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px}
+.facts dt{color:var(--ink2)}
+.info{margin-top:0}
+.info a{text-decoration:underline;text-underline-offset:4px}
+.sns-links{display:flex;flex-wrap:wrap;gap:4px 18px}
+/* ===== シェア ===== */
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:48px;font-size:13px;letter-spacing:.14em}
+.share span{color:var(--ink2)}
+.share a{text-decoration:underline;text-underline-offset:4px}

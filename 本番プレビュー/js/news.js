@@ -15,6 +15,12 @@
       document.getElementById('postBody').innerHTML = p.html;
       if (p.img) document.getElementById('postImg').innerHTML = `<img src="${p.img}" alt="">`;
       document.title = document.getElementById('postTitle').textContent + '｜一人プロジェクト';
+      // この記事をSNSで共有する
+      const u = encodeURIComponent(location.href), t = encodeURIComponent(document.title);
+      document.getElementById('postShare').innerHTML = `<span>この記事をシェア</span>
+        <a href="https://social-plugins.line.me/lineit/share?url=${u}" target="_blank" rel="noopener">LINE</a>
+        <a href="https://twitter.com/intent/tweet?url=${u}&text=${t}" target="_blank" rel="noopener">X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Facebook</a>`;
     }).catch(() => {});   // 読めないときは一覧のまま
     return;
   }

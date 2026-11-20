@@ -42,12 +42,9 @@
   addEventListener('resize', () => { const c = stages.findIndex(s => s.classList.contains('now')); if (c >= 0) pick(c); });
 
   // ---------- お問い合わせ：Googleフォームへ送る ----------
-  // Googleフォームを作ったら、ここに送り先と各項目の番号（entry.〇〇）を入れる。
+  // 送り先と各項目の番号（entry.〇〇）は、サイト情報.txt に書くと仕上げで js/site.js に入る。
   // 送り先が空のあいだは、送信しても内容はどこにも送られない（見本の動き）。
-  const GFORM = {
-    action: '',            // 例：'https://docs.google.com/forms/d/e/XXXX/formResponse'
-    name: '', email: '', tel: '', org: '', kinds: '', msg: '',   // 例：'entry.123456789'
-  };
+  const GFORM = (window.SITE && SITE.form) || { action: '' };
   const form = document.getElementById('form');
   const err = document.getElementById('formErr');
   const el = n => form.elements.namedItem(n);

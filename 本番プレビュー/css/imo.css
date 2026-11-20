@@ -78,9 +78,6 @@
 /* ===== 商品 ===== */
 .goods-photo{overflow:hidden}
 .goods-photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.facts{margin-top:36px;border-top:1px solid var(--line)}
-.facts div{display:grid;grid-template-columns:7em 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px}
-.facts dt{color:var(--ink2)}
 .imo-goods .two{align-items:center}
 
 /* ===== 畑に立つ人 ===== */
