@@ -46,6 +46,7 @@
   // 送り先が空のあいだは、送信しても内容はどこにも送られない（見本の動き）。
   const GFORM = (window.SITE && SITE.form) || { action: '' };
   const form = document.getElementById('form');
+  if (!form) return;   // フォームの準備ができるまでは、電話とInstagramの案内だけ
   const err = document.getElementById('formErr');
   const el = n => form.elements.namedItem(n);
   if (!GFORM.action) document.getElementById('formNote').textContent = 'いまは見本のため、送信しても内容は届きません。';
